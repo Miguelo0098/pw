@@ -1,0 +1,19 @@
+HyperText Markup Language - HTML
+
+- Es un lenguaje de marcado
+- Estructura: <tag> content </tag> (todo esto es un elemento)
+- Estructura alternativa: <tag content /> (sólo una línea)
+- <!DOCTYPE html> -> Directiva que indica la versión de HTML que se emplea
+- XHTML -> eXtensible HTML (XHTML 1.0, XHTML 1.1)
+- HTML5
+- Elemento HTML = Elemento Raíz
+- <html lang="en"> -> Establece el lenguaje en Inglés
+- Elenemto HEAD: elemento de encabezado de documento.
+- Etiqueta HEADER != Etiqueta HEAD
+- Etiqueta TITLE: título de la página web (aparece en la pestaña del navegador)
+- Etiqueta META: Metadatos del documento (no son visibles)
+- Etiqueta BODY: Cuerpo de la página web
+- Etiqueta H1: Título 
+- Etiqueta H2: Subtítulo
+- Etiqueta P: Párrafo
+- Los elementos se pueden clasificar con distintos criterios
