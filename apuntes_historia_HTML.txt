@@ -1,0 +1,14 @@
+Tim Berners-Lee: 			1991 HTML
+							1994 HTML+
+							1995 HTML 2.0
+Microsoft Internet Explorer
+Netscape Mosaic
+World Wide Web Consortium(W3C) 	1996 HTML 3.2
+								1998 HTML 4.0
+								1999 HTML 4.01
+eXstensible Markup Language (XML)
+SGML Standarized Generalized Markup Language
+								2000 XHTML 1.0
+									 XHTML 2.0
+2004 Web HyperText Application Technology Working Group (WHATWG)
+DTD Document Type Definition

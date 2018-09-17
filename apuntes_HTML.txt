@@ -16,4 +16,5 @@ HyperText Markup Language - HTML
 - Etiqueta H1: Título 
 - Etiqueta H2: Subtítulo
 - Etiqueta P: Párrafo
-- Los elementos se pueden clasificar con distintos criterios
+- Los elementos se pueden clasificar con distintos criterios: elementos de bloque y elementos de linea/insertados.
+- Separadores: <div>, <span>, <article>, <section>
