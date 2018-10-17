@@ -27,7 +27,7 @@ class EmployeeQueries{
     $dbc = null;
 
     try {
-      $dbc = new PDO('mysql:host=localhost; dbname=EmployeeDatabase', $this->username, $this->password, array(PDO:ATTR_PERSISTENT => true));
+      $dbc = new PDO('mysql:host=localhost; dbname=EmployeeDatabase', $this->username, $this->password, array(PDO::ATTR_PERSISTENT => true));
     } catch (PDOException $e) {
       return null;
     }
