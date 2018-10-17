@@ -8,24 +8,52 @@
 
 <?php
 	//Declaro variables
-	$employeeID = $_GET['employee'];
-	$employeeName = $_GET['employee'];
-	$employeeNick = $_GET['employee'];
-	$employeeAge = $_GET['employee'];
-	$employeeSpecialty = $_GET['employee'];
-	$employeeContactInfo = $_GET['employee'];
-
-	/* Incluyo las funciones de consulta de la base de datos */
 	require_once('aquivaelarchivodephp.php');
 
+	if ($conn->connect_error) {
+	    die("Conexion fallida " . $conn->connect_error);
+	}
+
+	$servername = "oraclepr.uco.es";
+	$username = "i52gavep";	
+	$password = "1234";
+	$dbname ="i52gavep";
+	$ID = $_GET['q'];
+
+	$conn = new mysqli($servername, $username, $password, $dbname);
+
+	if ($conn->connect_error) {
+	    die("Conexion fallida " . $conn->connect_error);
+	}
+
 	/* Crea un nuevo objeto para llamar a las consultas */
-	$query = new databaseQueries();
+	$sql = "select * from Employees where employeeID='$ID'";
+	$query = $conn->query($sql);
 
 	/* Comprueba que se ha realizado bien la conexion a la base de datos */
 	if(empty($q->dbc)){
 		echo "<h3 align='center'>Ha habido un problema al conectar con la base de datos. Por favor, vuelva mas tarde. </h3></br>";
 		die();
 	}
+
+	if ($query->num_rows > 0) {
+   		$databaseUser = $query->getEmployee();
+
+   		echo '	<body>
+					<h1>$employeeID</h1>
+					<h3>Información personal</h3>
+			<ul>
+   				<li> Nombre (cifrado): '. $databaseUser["Nombre"].' </li>
+   				<li> Nick: '. $databaseUser["Nombre"].' </li>
+				<li> Edad: '. $databaseUser["Nombre"].' </li>
+				<li> Especialidad: '. $databaseUser["Nombre"].' </li>
+				<li> Información de contacto: '. $databaseUser["Nombre"].' </li>';
+		echo "</lu>
+		</body>";
+
+   	}else{
+   		echo "No he encontrado ese cliente! Revisa tu peticion."
+   	}
 
 	/* Obtengo el listado de empleados */
 echo <<<_END
@@ -44,6 +72,12 @@ echo <<<_END
 	</body>
 _END;
 
-?>
+	} else {
+    	echo "0 resultados";
+	}
+	$conn->close();
+	
+	?>
+
 </body>
 </html>
