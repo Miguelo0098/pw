@@ -44,8 +44,6 @@ _END;
 	<p id="copyright">This site uses cookies to deliver our services and to show you relevant ads and job listings. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
 _END;
 
-	$conn->close();
-
 ?>
 </body>
 </html>
