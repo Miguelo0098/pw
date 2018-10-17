@@ -8,65 +8,33 @@
 
 <?php
 	//Declaro variables
-	require_once('aquivaelarchivodephp.php');
+	require_once('employeefunctions.php');
 
-	if ($conn->connect_error) {
-	    die("Conexion fallida " . $conn->connect_error);
-	}
-
-	$servername = "oraclepr.uco.es";
-	$username = "i52gavep";	
-	$password = "1234";
-	$dbname ="i52gavep";
-	$ID = $_GET['q'];
-
-	$conn = new mysqli($servername, $username, $password, $dbname);
-
-	if ($conn->connect_error) {
-	    die("Conexion fallida " . $conn->connect_error);
-	}
-
-	/* Crea un nuevo objeto para llamar a las consultas */
-	$sql = "select * from Employees where employeeID='$ID'";
-	$query = $conn->query($sql);
+	$query = new EmployeeQueries();
 
 	/* Comprueba que se ha realizado bien la conexion a la base de datos */
+
 	if(empty($q->dbc)){
 		echo "<h3 align='center'>Ha habido un problema al conectar con la base de datos. Por favor, vuelva mas tarde. </h3></br>";
 		die();
 	}
 
-	if ($query->num_rows > 0) {
-   		$databaseUser = $query->getEmployee();
+	/* Crea un nuevo objeto para llamar a las consultas */
 
-   		echo '	<body>
-					<h1>$employeeID</h1>
-					<h3>Información personal</h3>
-			<ul>
-   				<li> Nombre (cifrado): '. $databaseUser["Nombre"].' </li>
-   				<li> Nick: '. $databaseUser["Nombre"].' </li>
-				<li> Edad: '. $databaseUser["Nombre"].' </li>
-				<li> Especialidad: '. $databaseUser["Nombre"].' </li>
-				<li> Información de contacto: '. $databaseUser["Nombre"].' </li>';
-		echo "</lu>
-		</body>";
-
-   	}else{
-   		echo "No he encontrado ese cliente! Revisa tu peticion."
-   	}
+	$databaseUser = $query->getEmployee($ID);
+	echo '	<body>
+				<h1>'. 'Empleado n'$databaseUser[ID].'</h1>
+				<h3>Información personal</h3>
+					<ul>
+   						<li> Nombre (cifrado): '. $databaseUser[NOMBRE_CIFRADO].' </li>
+   						<li> Nick: '. $databaseUser[NICK].' </li>
+						<li> Edad: '. $databaseUser[EDAD].' </li>
+						<li> Especialidad: '. $databaseUser[ESPECIALIDAD].' </li>
+						<li> Información de contacto: '. $databaseUser[CONTACTO].' </li>';
+		echo "		</ul>";
 
 	/* Obtengo el listado de empleados */
 echo <<<_END
-	<body>
-		<h1>$employeeID</h1>
-		<h3>Información personal</h3>
-			<ul>
-				<li> Nombre (cifrado): $employeeName </li>
-				<li> Nick: $employeeNick </li>
-				<li> Edad: $employeeAge </li>
-				<li> Especialidad: $employeeSpecialty </li>
-				<li> Información de contacto: $employeeContactInfo </li>
-			</ul>
   		<a id="back" href="./index.html">Atrás</a>
   		<p id="copyright">This site uses cookies to deliver our services and to show you relevant ads and job listings. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
 	</body>
