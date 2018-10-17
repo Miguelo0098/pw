@@ -42,16 +42,19 @@ class EmployeeQueries{
     if ($sentence->execute()) {
       while ($row = $sentence->fetch()) {
         $employees[$i] = $row;
-
-        if ($row['available']) {
-          $employees[$i]['available'] = "Si";
-        }
-        else
-          $employees[$i]['available'] = "No";
         $i++;
       }
     }
     return $employees;
+  }
+
+  public function getEmployee($id){
+    $sqlcommand = "SELECT * FROM EMPLOYEES WHERE ID=$id";
+    $sentence = $this->dbc->prepare($sqlcommand);
+    if ($sentence->execute()) {
+      $row = $sentence->fetch();
+    }
+    return $row;
   }
 
 }
