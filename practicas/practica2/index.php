@@ -29,7 +29,7 @@ echo <<<_END
 				<th>NICK</th>
 _END;
 
-	$employees = $query->getEmployees();
+	$employees = $query->getAllEmployees();
 	foreach($employees as $employee) {
 		echo <<<_END
 			<tr allign='center'>

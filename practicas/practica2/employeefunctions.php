@@ -5,10 +5,10 @@ class EmployeeQueries{
   public $servername = "localhost";
 
   //Nombre del usuario de la base de datos
-  public $username = "miguelo";
+  public $username = "root";
 
   //Contraseña de la base de datos
-  public $password = "miguelopw";
+  public $password = "";
 
   //Nombre de la base de datos
   public $dbname = "EmployeeDatabase";
