@@ -1,0 +1,29 @@
+h1{
+  text-align: center;
+}
+body{
+  background-color: black;
+  color: rgb(0, 255, 75);
+  font-family: arial;
+}
+.warning{
+  color: red;
+  text-align: center;
+}
+li{
+  color: white;
+  font-weight: bold;
+}
+a{
+  color: white;
+}
+#copyright {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  font-size: 12px;
+  background-color: #222;
+}
+.missing{
+  color: red;
+}
