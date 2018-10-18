@@ -5,6 +5,9 @@ body{
   background-color: white;
   font-family: arial;
 }
+h3{
+  text-align: center;
+}
 .warning{
   color: red;
   text-align: center;
@@ -17,6 +20,7 @@ a{
   color: white;
 }
 #copyright {
+  color: white;
   position: absolute;
   text-align: center;
   bottom: 0;
@@ -26,6 +30,12 @@ a{
 .missing{
   color: red;
 }
-table, th, td{
-  border: 1px solid black
+table, th{
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+td{
+  border: 1px solid black;
+  border-collapse: collapse;
 }
