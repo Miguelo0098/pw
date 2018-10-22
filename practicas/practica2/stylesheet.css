@@ -21,7 +21,7 @@ a{
 }
 #cookies {
   color: white;
-  position: relative;
+  position: absolute;
   text-align: center;
   bottom: 0;
   font-size: 12px;
