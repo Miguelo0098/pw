@@ -25,33 +25,30 @@
 	/* Crea un nuevo objeto para llamar a las consultas */
 
 	$databaseUser = $query->getEmployee($ID);
-	echo <<<_END
-		<body>
-				<h1>Agente nº $databaseUser[ID]</h1>
-					<ul>
-   						<li> Nombre (cifrado): $databaseUser[NOMBRE_CIFRADO]</li>
-   						<li> Nick: $databaseUser[NICK]</li>
-						<li> Edad: $databaseUser[EDAD]</li>
-						<li> Especialidad: $databaseUser[ESPECIALIDAD]</li>
-						<li> Información de contacto: $databaseUser[CONTACTO]</li>
-					</ul>
-  		<a id="back" href="./index.php">Atrás</a>
-  		<p id="cookies">This site uses cookies to deliver our services and to show you relevant ads and job listings. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
-	</body>
-_END;
+
 echo <<<_END
 		<body>
-			<h1>Agente nº $databaseUser[ID]</h1>
+			<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
+			<h1><b>Special Agents Database</b></h1>
+			<h3>Agente nº $databaseUser[ID]</h3>
 			<table align='center'>
 				<tr align='center'>
 					<th>Foto</th>
-					<th>Id</th>
 					<th>Nickname</th>
 					<th>Nombre cifrado</th>
 					<th>Edad</th>
 					<th>Contacto</th>
+				</tr>
 				<tr allign='center'>
-
+					<td><img id="profilepic" src="$databaseUser[PHOTO]" alt="$databaseUser[PHOTO]"></td>
+					<td>$databaseUser[NICK]</td>
+					<td>$databaseUser[NOMBRE_CIFRADO]</td>
+					<td>$databaseUser[EDAD]</td>
+					<td><a href="https://webmail.uco.es/horde/imp/compose.php?to=$databaseUser[CONTACTO]&uniq=1540292184179" target="_blank">$databaseUser[CONTACTO]</td>
+			</table>
+			<a id="back" href="./index.php">Atrás</a>
+  		<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
+		</body>
 _END;
 
 
