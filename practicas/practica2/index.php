@@ -26,8 +26,9 @@ echo <<<_END
 		<h3 allign='center'>Lista de empleados</h3>
 		<table align='center'>
 			<tr align='center'>
-				<th>ID</th>
-				<th>NICK</th>
+				<th>Id</th>
+				<th>Nickname</th>
+				<th>Link</th>
 _END;
 
 	$employees = $query->getAllEmployees();
@@ -36,6 +37,7 @@ _END;
 			<tr allign='center'>
 				<td>$employee[ID]</td>
 				<td>$employee[NICK]</td>
+				<td><a href="employee.php?employee='.urlencode($employee[ID]).'">Ver más</a>
 _END;
 	}
 	echo <<<_END
