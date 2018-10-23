@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>TEAMOJA Enterprise</title>
+	<title>UCO Agents</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
@@ -21,9 +21,10 @@
 
 	/* Obtengo el listado de empleados */
 echo <<<_END
-		<h1><b>TeaMoja Enterprise Employee Database</b></h1>
+		<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
+		<h1><b>Special Agents Database</b></h1>
 
-		<h3 allign='center'>Lista de empleados</h3>
+		<h3 allign='center'>Lista de agentes</h3>
 		<table align='center'>
 			<tr align='center'>
 				<th>Id</th>
@@ -37,14 +38,14 @@ _END;
 			<tr allign='center'>
 				<td>$employee[ID]</td>
 				<td>$employee[NICK]</td>
-				<td><a href="employee.php?employee='.urlencode($employee[ID]).'">Ver más</a>
+				<td><a href="employee.php?employee=$employee[ID]">Ver más</a>
 _END;
 	}
 	echo <<<_END
 		</table>
 _END;
 	echo <<<_END
-	<p id="cookies">This site uses cookies to deliver our services and to show you relevant ads and job listings. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
+	<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
 _END;
 
 ?>

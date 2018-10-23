@@ -49,7 +49,7 @@ class EmployeeQueries{
   }
 
   public function getEmployee($id){
-    $sqlcommand = "SELECT * FROM EMPLOYEES WHERE ID=$id";
+    $sqlcommand = "SELECT * FROM EMPLOYEES WHERE ID=".$id;
     $sentence = $this->dbc->prepare($sqlcommand);
     if ($sentence->execute()) {
       $row = $sentence->fetch();

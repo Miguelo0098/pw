@@ -1,5 +1,8 @@
 h1{
-  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
 }
 body{
   background-color: white;
@@ -10,8 +13,7 @@ h3{
 }
 
 li{
-  color: white;
-  font-weight: bold;
+  color: black;
 }
 a{
   color: black;
