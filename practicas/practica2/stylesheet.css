@@ -8,10 +8,7 @@ body{
 h3{
   text-align: center;
 }
-.warning{
-  color: red;
-  text-align: center;
-}
+
 li{
   color: white;
   font-weight: bold;
@@ -22,14 +19,12 @@ a{
 #cookies {
   color: white;
   position: absolute;
-  text-align: center;
   bottom: 0;
   font-size: 12px;
   background-color: #222;
+  text-align: center;
 }
-.missing{
-  color: red;
-}
+
 th{
   border: 2px solid black;
   background-color: rgb(200, 200, 200);
