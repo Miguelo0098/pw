@@ -24,8 +24,7 @@
 	/* Crea un nuevo objeto para llamar a las consultas */
 
 	$databaseUser = $query->getEmployee($ID);
-	echo <<<_END
-			<body>
+	echo '	<body>
 				<h1>'. 'Empleado n'$databaseUser[ID].'</h1>
 				<h3>Información personal</h3>
 					<ul>
@@ -33,15 +32,19 @@
    						<li> Nick: '. $databaseUser[NICK].' </li>
 						<li> Edad: '. $databaseUser[EDAD].' </li>
 						<li> Especialidad: '. $databaseUser[ESPECIALIDAD].' </li>
-						<li> Información de contacto: '. $databaseUser[CONTACTO].' </li>
-					</ul>
+						<li> Información de contacto: '. $databaseUser[CONTACTO].' </li>';
+		echo "		</ul>";
 
+	/* Obtengo el listado de empleados */
+echo <<<_END
   		<a id="back" href="./index.php">Atrás</a>
   		<p id="cookies">This site uses cookies to deliver our services and to show you relevant ads and job listings. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
 	</body>
 _END;
 
-
+	} else {
+    	echo "0 resultados";
+	}
 	$conn->close();
 
 	?>
