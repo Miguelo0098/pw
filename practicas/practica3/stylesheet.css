@@ -1,0 +1,48 @@
+h1{
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+}
+body{
+  background-color: white;
+  font-family: ubuntu;
+}
+h3{
+  text-align: center;
+}
+#profilepic{
+  width: 100px;
+  height: 100px;
+}
+
+li{
+  color: black;
+}
+a{
+  color: black;
+}
+#cookies {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  font-size: 12px;
+  background-color: #222;
+  text-align: center;
+}
+
+#back{
+  text-align: center;
+}
+
+th{
+  border: 2px solid black;
+  background-color: rgb(200, 200, 200);
+  border-collapse: collapse;
+}
+
+table, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
