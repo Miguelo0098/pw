@@ -35,15 +35,19 @@ echo <<<_END
 				<tr align='center'>
 					<th>Foto</th>
 					<th>Nickname</th>
-					<th>Nombre cifrado</th>
+					<th>Nombre</th>
+					<th>Sexo</th>
 					<th>Edad</th>
+					<th>Especialidad</th>
 					<th>Contacto</th>
 				</tr>
 				<tr allign='center'>
 					<td><img id="profilepic" src="$databaseUser[PHOTO]" alt="$databaseUser[PHOTO]"></td>
 					<td>$databaseUser[NICK]</td>
-					<td>$databaseUser[NOMBRE_CIFRADO]</td>
+					<td>$databaseUser[NOMBRE]</td>
+					<td>$databaseUser[SEXO]</td>
 					<td>$databaseUser[EDAD]</td>
+					<td>$databaseUser[ESPECIALIDAD]</th>
 					<td><a href="https://webmail.uco.es/horde/imp/compose.php?to=$databaseUser[CONTACTO]&uniq=1540292184179" target="_blank">$databaseUser[CONTACTO]</td>
 			</table>
 			<a id="back" href="./index.php">Atrás</a>

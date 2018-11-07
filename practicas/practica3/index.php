@@ -25,11 +25,12 @@ echo <<<_END
 		<h1><b>Special Agents Database</b></h1>
 
 		<h3 allign='center'>Lista de agentes</h3>
+		<a align='center' href="memberInfo.php">
 		<table align='center'>
 			<tr align='center'>
 				<th>Id</th>
 				<th>Nickname</th>
-				<th>Link</th>
+				<th>Opciones</th>
 _END;
 
 	$employees = $query->getAllEmployees();
@@ -38,7 +39,10 @@ _END;
 			<tr allign='center'>
 				<td>$employee[ID]</td>
 				<td>$employee[NICK]</td>
-				<td><a href="employee.php?employee=$employee[ID]">Ver más</a>
+				<td><a href="employee.php?employee=$employee[ID]"><img id="icono" src="./pics/info.png" alt="Info"></a>
+				<a href="editaremployee.php?employee=$employee[ID]"><img id="icono" src="./pics/edit.png" alt="Editar"></a>
+					<a href="borrarEmployee.php?employee=$employee[ID]"><img id="icono" src="./pics/delete.png" alt="Borrar"></a>
+				</td>
 _END;
 	}
 	echo <<<_END

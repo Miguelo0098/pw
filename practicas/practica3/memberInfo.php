@@ -12,7 +12,7 @@
 		<input type="radio" name="gender" value="other"><br>
 	</form>
 	Edad:<br>
-	#Poner la edad con una lista (de 16 a 99 anos f.ex.)
+	#Poner la edad con una lista (de 16 a 99 años f.ex.)
 	Especialidad:<br>
 	<form>
 		<input type="checkbox" name="specialty1" value=""> Sigiloso<br>
