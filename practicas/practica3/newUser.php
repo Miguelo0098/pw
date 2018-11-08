@@ -67,7 +67,7 @@ _END;
 
 	$sql = "INSERT INTO employees (ID, NOMBRE, NICK, EDAD, SEXO, ESPECIALIDAD, CONTACTO) VALUES (, $name, $nick, $age, $gender, $specialty, $contactInfo)"
 
-	if ($conn->query($sql) === TRUE) {
+	if ($conn->query($sql) == TRUE) {
     	echo "Record updated successfully";
 	} else {
     	echo "Error updating record: " . $conn->error;

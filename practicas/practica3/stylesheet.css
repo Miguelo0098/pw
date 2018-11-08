@@ -5,7 +5,6 @@ h1{
   text-align: right;
 }
 body{
-  background-image: url(https://media.lolusercontent.com/api/embedly/1/image/resize?url=http%3A%2F%2Fvignette2.wikia.nocookie.net%2Fyuzura%2Fimages%2Fb%2Fbf%2FRainbow_Chicken_Dance_Man.gif%2Frevision%2Flatest%3Fcb%3D20130622001918&key=f0abbd34f14549f3a15cd94dd9970851&width=425);
   background-color: white;
   font-family: ubuntu;
 }
@@ -22,6 +21,10 @@ li{
 }
 a{
   color: black;
+  text-align: center;
+}
+h5{
+  text-align: center;
 }
 #cookies {
   color: white;
