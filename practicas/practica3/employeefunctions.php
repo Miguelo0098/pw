@@ -64,5 +64,15 @@ class EmployeeQueries{
       echo "<h3>Se ha borrado al agente</h3>";
     }
   }
+  
+  public function maxIdEmployee(){
+    $sqlcommand = mysql_query("SELECT max(ID) FROM EMPLOYEE");
+    $sentence = $this->dbc->prepare($sqlcommand);
+    if ($sentence->execute()) {
+      $row = $sentence->fetch();
+    }
+    
+    return mysql_result($result, 0, 'ID');
+  }
 
 }
