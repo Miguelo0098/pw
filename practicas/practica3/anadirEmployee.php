@@ -34,45 +34,58 @@ echo <<<_END
 		<h3>Creacion de un nuevo miembro</h3>
 		<form>
 			Name (encrypted):<br>
-			<input type="text" name="username"><br>
+			<input type="text" name="username" required><br>
 
 			<br>Nick:<br>
-			<input type="text" name="nick"><br>	
+			<input type="text" name="nick" required><br>	
 
 			<br>Sexo:<br>
 			<input type="radio" name="gender" value="male"> Hombre<br>
 			<input type="radio" name="gender" value="female"> Mujer<br>
 			<input type="radio" name="gender" value="other"> Otro<br>
-
+			<br>Edad:<br>
+			<select name="edad">
+_END
+			for ($i=16; $i < 100; $i++) { 
+				echo "<option value="$i">$i</option>";
+			}
+echo <<<_END
+			</select>
 			<br>Especialidad:<br>
-			<input type="checkbox" name="specialty1" value=""> Sigiloso<br>
-			<input type="checkbox" name="specialty2" value=""> Suertudo<br>
-			<input type="checkbox" name="specialty3" value=""> Rico<br>
-			<input type="checkbox" name="specialty4" value=""> Persuasivo<br>
-			<input type="checkbox" name="specialty5" value=""> Agil<br>
-			<input type="checkbox" name="specialty6" value=""> Inteligente <br>
-	
+			<input type="checkbox" name="specialty" value="Sigiloso" checked> Sigiloso<br>
+			<input type="checkbox" name="specialty" value="Suertudo"> Suertudo<br>
+			<input type="checkbox" name="specialty" value="Rico"> Rico<br>
+			<input type="checkbox" name="specialty" value="Persuasivo"> Persuasivo<br>
+			<input type="checkbox" name="specialty" value="Agil"> Agil<br>
+			<input type="checkbox" name="specialty" value="Inteligente"> Inteligente <br>
+			
+			<br>Foto<br>
+			<input type="text" name="photo"><br>
 			<br>Direccion de contacto:<br>
-			<input type="text" name="contactInfo"><br>
+			<input type="text" name="contactInfo" required><br>
+			<br>
+			<input type="submit" name="addagent" value="Añadir">
 		</form>
 	<a id="back" href="./index.php">Atrás</a>
   	<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
 	</body>
 _END;
 
+	$agent['username'] = $_POST['username'];
+	$agent['nick'] = $_POST['nick'];
+	$agent['gender'] = $_POST['gender'];
+	$agent['contactInfo'] = $_POST['contactInfo'];
+	$agent['edad'] = $_POST['edad'];
+	$agent['photo'] = $_POST['photo'];
+
+
 	//Compruebo que se ha introducido todo
-	if(!isset($_POST('username')) || 
-		!isset($_POST('nick')) || 
-		!isset($_POST('gender')) || 
-		!isset($_POST('contactInfo')) ){
-		//Hasta aqui compruebo todos los apartados salvo los de especialidad
-		
-		if(isset($_POST('specialty1')) ||
-			isset($_POST('specialty2')) ||
-			isset($_POST('specialty3')) ||
-			isset($_POST('specialty4')) ||
-			isset($_POST('specialty5')) ||
-			isset($_POST('specialty6'))){
+	if(isset($_POST['username']) &&
+		isset($_POST['nick']) &&
+		isset($_POST['gender']) &&
+		isset($_POST['contactInfo']) &&
+		isset($_POST['edad']) &&
+		isset($_POST['speciality'])){
 			
 			//Con que se introduzca uno de ellos valdra.
 			//**A TENER EN CUENTA** -> Hay que ver como metemos las especialidades! (deberia de ser alguna clase de vector o array)

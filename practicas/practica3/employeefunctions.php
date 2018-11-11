@@ -72,7 +72,7 @@ class EmployeeQueries{
       $row = $sentence->fetch();
     }
     
-    return mysql_result($result, 0, 'ID');
+    return $row;
   }
 
 }
