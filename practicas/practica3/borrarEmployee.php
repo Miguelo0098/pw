@@ -49,29 +49,22 @@ echo <<<_END
 					<td><a href="https://webmail.uco.es/horde/imp/compose.php?to=$databaseUser[CONTACTO]&uniq=1540292184179" target="_blank">$databaseUser[CONTACTO]</td>
 			</table>
 
-			<br> Esta seguro de que desea borrar este agente? <br>
-			<input type="submit" name="eraseSelection" value="Si" />
-			<input type="submit" name="eraseSelection" value="No" />
-
-			<a id="back" href="./index.php">Atrás</a>
+			<br> 
+			<h5>Esta seguro de que desea borrar este agente?</h5>
+			<form action="" method="POST">
+				<input type="submit" name="eraseSelection" value="Confirmar" />
+			</form>
+			<br>
+			<h3><a id="back" href="./index.php">Atrás</a></h3>
   		<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
 		</body>
 _END;
 
-	if($_REQUEST['eraseSelection']=="Si"){
-		$sql = "DELETE FROM EMPLOYEES WHERE ID=$ID";
-
-		if ($conn->query($sql) === TRUE) {
-    		echo "Se ha borrado correctamente al agente.";
-		} else {
-    		echo "Ha habido un error borrando al agente: " . $conn->error;
-		}
-
-	}else{
-		echo "Se ha cancelado la operacion."
+	if(isset($_POST["eraseSelection"])){
+		$query->deleteEmployee($ID);
+		
 	}
-
-	?>
+?>
 
 </body>
 </html>

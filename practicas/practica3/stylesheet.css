@@ -55,3 +55,7 @@ table, td{
   width: 12px;
   height: 12px;
 }
+form{
+  align-content: center;
+  text-align: center;
+}

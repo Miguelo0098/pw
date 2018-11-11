@@ -57,4 +57,12 @@ class EmployeeQueries{
     return $row;
   }
 
+  public function deleteEmployee($id){
+    $sqlcommand = "DELETE FROM EMPLOYEES WHERE ID=".$id;
+    $sentence = $this->dbc->prepare($sqlcommand);
+    if ($sentence->execute()) {
+      echo "<h3>Se ha borrado al agente</h3>";
+    }
+  }
+
 }

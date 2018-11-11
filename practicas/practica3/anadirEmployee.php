@@ -76,7 +76,7 @@ _END;
 			
 			//Con que se introduzca uno de ellos valdra.
 			//**A TENER EN CUENTA** -> Hay que ver como metemos las especialidades! (deberia de ser alguna clase de vector o array)
-			$sql = "INSERT INTO EMPLOYEE (ID, NOMBRE, NICK, EDAD, SEXO, ESPECIALIDAD, CONTACTO) VALUES ($newID, $name, $nick, $age, $gender, $specialty, $contactInfo)"
+			$sql = "INSERT INTO EMPLOYEE (ID, NOMBRE, NICK, EDAD, SEXO, ESPECIALIDAD, CONTACTO) VALUES ($newID, $name, $nick, $age, $gender, $specialty, $contactInfo)";
 	
 			if ($conn->query($sql) == TRUE) {
 		    	echo "Se ha introducido correctamente al agente,";
@@ -86,11 +86,11 @@ _END;
 
 		}else{
 				//No se ha introducido ningun apartado de especialidad
-				echo "Hay que rellenar todos los apartados!"
+				echo "Hay que rellenar todos los apartados!";
 		}
 	}else{
 			//No se ha introducido alguno de los apartados
-			echo "Hay que rellenar todos los apartados!"
+			echo "Hay que rellenar todos los apartados!";
 	}
 
 ?>
