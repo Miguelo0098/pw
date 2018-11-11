@@ -66,13 +66,13 @@ class EmployeeQueries{
   }
   
   public function maxIdEmployee(){
-    $sqlcommand = mysql_query("SELECT max(ID) FROM EMPLOYEE");
+    $sqlcommand = ("SELECT max(ID) FROM EMPLOYEE");
     $sentence = $this->dbc->prepare($sqlcommand);
     if ($sentence->execute()) {
       $row = $sentence->fetch();
     }
     
-    return $row;
+    return isset($row);
   }
 
 }

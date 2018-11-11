@@ -17,15 +17,7 @@
 		die();
 	}
 
-	//Obtengo el ultimo valor de ID de la base de datos
-	$result = mysql_query("SELECT max(ID) FROM EMPLOYEE");
-	//Compruebo si hubiera algun fallo en la obtencion
-	if (!$result) {
-    	die('No ha podido obtenerse el ID maximo:' . mysql_error());
-	}
 
-	//**A TENER EN CUENTA** -> Por si diera fallo, habria que descomentar esto (cosas de stackOverflow)
-	//$newID = mysql_result($result, 0, 'ID');
 
 echo <<<_END
 	<body>
@@ -45,9 +37,9 @@ echo <<<_END
 			<input type="radio" name="gender" value="other"> Otro<br>
 			<br>Edad:<br>
 			<select name="edad">
-_END
+_END;
 			for ($i=16; $i < 100; $i++) { 
-				echo "<option value="$i">$i</option>";
+				echo "<option value='$i'>$i</option>";
 			}
 echo <<<_END
 			</select>
@@ -70,40 +62,21 @@ echo <<<_END
   	<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
 	</body>
 _END;
-
-	$agent['username'] = $_POST['username'];
-	$agent['nick'] = $_POST['nick'];
-	$agent['gender'] = $_POST['gender'];
-	$agent['contactInfo'] = $_POST['contactInfo'];
-	$agent['edad'] = $_POST['edad'];
-	$agent['photo'] = $_POST['photo'];
+	$newid = $query->maxIdEmployee();
+	$agent['id'] = $newid + 1;
+	$agent['username'] = isset($_POST['username']);
+	$agent['nick'] = isset($_POST['nick']);
+	$agent['gender'] = isset($_POST['gender']);
+	$agent['contactInfo'] = isset($_POST['contactInfo']);
+	$agent['edad'] = isset($_POST['edad']);
+	$agent['photo'] = isset($_POST['photo']);
+	$agent['speciality'] = isset($_POST['speciality']);
 
 
 	//Compruebo que se ha introducido todo
-	if(isset($_POST['username']) &&
-		isset($_POST['nick']) &&
-		isset($_POST['gender']) &&
-		isset($_POST['contactInfo']) &&
-		isset($_POST['edad']) &&
-		isset($_POST['speciality'])){
-			
-			//Con que se introduzca uno de ellos valdra.
-			//**A TENER EN CUENTA** -> Hay que ver como metemos las especialidades! (deberia de ser alguna clase de vector o array)
-			$sql = "INSERT INTO EMPLOYEE (ID, NOMBRE, NICK, EDAD, SEXO, ESPECIALIDAD, CONTACTO) VALUES ($newID, $name, $nick, $age, $gender, $specialty, $contactInfo)";
-	
-			if ($conn->query($sql) == TRUE) {
-		    	echo "Se ha introducido correctamente al agente,";
-			} else {
-	    	echo "Ha habido un error introduciendo al agente: " . $conn->error;
-			}
-
-		}else{
-				//No se ha introducido ningun apartado de especialidad
-				echo "Hay que rellenar todos los apartados!";
-		}
-	}else{
-			//No se ha introducido alguno de los apartados
-			echo "Hay que rellenar todos los apartados!";
+	if(isset($_POST['addagent'])){
+		$query->addEmployee($agent);
+		header('Location: index.php');
 	}
 
 ?>
