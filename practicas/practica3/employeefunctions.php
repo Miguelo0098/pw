@@ -66,7 +66,7 @@ class EmployeeQueries{
   }
   
   public function maxIdEmployee(){
-    $sqlcommand = ("SELECT max(ID) FROM EMPLOYEE");
+    $sqlcommand = "SELECT max(ID) FROM EMPLOYEE";
     $sentence = $this->dbc->prepare($sqlcommand);
     if ($sentence->execute()) {
       $row = $sentence->fetch();
@@ -76,7 +76,7 @@ class EmployeeQueries{
   }
   
   public function addEmployee($agent){
-    $sqlcommand = mysql_query("INSERT INTRO EMPLOYEE (ID, NOMBRE, NICK, EDAD, SEXO, ESPECIALIDAD, CONTACTO) VALUES ($agent['id'], $agent['username'], $agent['nick'], $agent['gender'], $agent['contactInfo'], $agent['edad'], $agent['photo'], $agent['speciality'])");
+    $sqlcommand = "INSERT INTO EMPLOYEE (ID, NOMBRE, NICK, SEXO, EDAD, PHOTO, ESPECIALIDAD, CONTACTO) VALUES (".$agent['id'].", ".$agent['username'].", ".$agent['nick'].", ".$agent['gender'].", ".$agent['edad'].", ".$agent['photo'].", ".$agent['speciality'].", ".$agent['contactInfo'].")";
     $sentence = $this->dbc->prepare($sqlcommand);
     if ($sentence->execute()) {
       echo "<h3>Se ha añadido al agente</h3>";

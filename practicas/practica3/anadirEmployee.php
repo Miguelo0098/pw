@@ -16,7 +16,15 @@
 		echo "<h3 align='center'>Ha habido un problema al conectar con la base de datos. Por favor, vuelva mas tarde. </h3></br>";
 		die();
 	}
-
+	$newid = $query->maxIdEmployee();
+	$agent['id'] = $newid + 1;
+	$agent['username'] = isset($_POST['username']);
+	$agent['nick'] = isset($_POST['nick']);
+	$agent['gender'] = isset($_POST['gender']);
+	$agent['contactInfo'] = isset($_POST['contactInfo']);
+	$agent['edad'] = isset($_POST['edad']);
+	$agent['photo'] = isset($_POST['photo']);
+	$agent['speciality'] = isset($_POST['speciality']);
 
 
 echo <<<_END
@@ -24,7 +32,7 @@ echo <<<_END
 		<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
 		<h1><b>Special Agents Database</b></h1>
 		<h3>Creacion de un nuevo miembro</h3>
-		<form>
+		<form action="index.php" method="POST">
 			Name (encrypted):<br>
 			<input type="text" name="username" required><br>
 
@@ -62,21 +70,11 @@ echo <<<_END
   	<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
 	</body>
 _END;
-	$newid = $query->maxIdEmployee();
-	$agent['id'] = $newid + 1;
-	$agent['username'] = isset($_POST['username']);
-	$agent['nick'] = isset($_POST['nick']);
-	$agent['gender'] = isset($_POST['gender']);
-	$agent['contactInfo'] = isset($_POST['contactInfo']);
-	$agent['edad'] = isset($_POST['edad']);
-	$agent['photo'] = isset($_POST['photo']);
-	$agent['speciality'] = isset($_POST['speciality']);
 
 
 	//Compruebo que se ha introducido todo
 	if(isset($_POST['addagent'])){
 		$query->addEmployee($agent);
-		header('Location: index.php');
 	}
 
 ?>
