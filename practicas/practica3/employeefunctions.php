@@ -74,5 +74,13 @@ class EmployeeQueries{
     
     return isset($row);
   }
+  
+  public function addEmployee($agent){
+    $sqlcommand = mysql_query("INSERT INTRO EMPLOYEE (ID, NOMBRE, NICK, EDAD, SEXO, ESPECIALIDAD, CONTACTO) VALUES ($agent['id'], $agent['username'], $agent['nick'], $agent['gender'], $agent['contactInfo'], $agent['edad'], $agent['photo'], $agent['speciality'])");
+    $sentence = $this->dbc->prepare($sqlcommand);
+    if ($sentence->execute()) {
+      echo "<h3>Se ha añadido al agente</h3>";
+    }
+  }
 
 }
