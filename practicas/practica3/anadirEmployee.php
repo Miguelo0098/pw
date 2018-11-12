@@ -16,15 +16,20 @@
 		echo "<h3 align='center'>Ha habido un problema al conectar con la base de datos. Por favor, vuelva mas tarde. </h3></br>";
 		die();
 	}
-	$newid = $query->maxIdEmployee();
-	$agent['id'] = $newid + 1;
-	$agent['username'] = isset($_POST['username']);
-	$agent['nick'] = isset($_POST['nick']);
-	$agent['gender'] = isset($_POST['gender']);
-	$agent['contactInfo'] = isset($_POST['contactInfo']);
-	$agent['edad'] = isset($_POST['edad']);
-	$agent['photo'] = isset($_POST['photo']);
-	$agent['speciality'] = isset($_POST['speciality']);
+
+	if(isset($_POST['addagent'])){
+		$newid = $query->maxIdEmployee();
+		$agent[0] = $newid + 1;
+		$agent[1] = isset($_POST['username']);
+		$agent[2] = isset($_POST['nick']);
+		$agent[3] = isset($_POST['gender']);
+		$agent[7] = isset($_POST['contactInfo']);
+		$agent[4] = isset($_POST['edad']);
+		$agent[5] = isset($_POST['photo']);
+		$agent[6] = isset($_POST['speciality']);
+		$query->addEmployee($agent);
+	}
+	
 
 
 echo <<<_END
@@ -73,9 +78,7 @@ _END;
 
 
 	//Compruebo que se ha introducido todo
-	if(isset($_POST['addagent'])){
-		$query->addEmployee($agent);
-	}
+	
 
 ?>
 

@@ -76,7 +76,7 @@ class EmployeeQueries{
   }
   
   public function addEmployee($agent){
-    $sqlcommand = "INSERT INTO EMPLOYEE (ID, NOMBRE, NICK, SEXO, EDAD, PHOTO, ESPECIALIDAD, CONTACTO) VALUES (".$agent['id'].", ".$agent['username'].", ".$agent['nick'].", ".$agent['gender'].", ".$agent['edad'].", ".$agent['photo'].", ".$agent['speciality'].", ".$agent['contactInfo'].")";
+    $sqlcommand = "INSERT INTO `EMPLOYEES`(`ID`, `NOMBRE`, `NICK`, `SEXO`, `EDAD`, `PHOTO`, `ESPECIALIDAD`, `CONTACTO`) VALUES ('$agent[0]','$agent[1]','$agent[2]','$agent[3]','$agent[4]','$agent[5]','$agent[6]','$agent[7]')";
     $sentence = $this->dbc->prepare($sqlcommand);
     if ($sentence->execute()) {
       echo "<h3>Se ha añadido al agente</h3>";

@@ -28,7 +28,7 @@ h5{
 }
 #cookies {
   color: white;
-  position: absolute;
+  position: relative;
   bottom: 0;
   font-size: 12px;
   background-color: #222;
