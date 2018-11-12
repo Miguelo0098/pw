@@ -64,23 +64,24 @@ class EmployeeQueries{
       echo "<h3>Se ha borrado al agente</h3>";
     }
   }
-  
+
   public function maxIdEmployee(){
-    $sqlcommand = "SELECT max(ID) FROM EMPLOYEE";
+    $sqlcommand = "SELECT MAX(`ID`) FROM `EMPLOYEES`";
     $sentence = $this->dbc->prepare($sqlcommand);
     if ($sentence->execute()) {
       $row = $sentence->fetch();
     }
-    
-    return isset($row);
+
+    return $row;
   }
-  
+
   public function addEmployee($agent){
     $sqlcommand = "INSERT INTO `EMPLOYEES`(`ID`, `NOMBRE`, `NICK`, `SEXO`, `EDAD`, `PHOTO`, `ESPECIALIDAD`, `CONTACTO`) VALUES ('$agent[0]','$agent[1]','$agent[2]','$agent[3]','$agent[4]','$agent[5]','$agent[6]','$agent[7]')";
     $sentence = $this->dbc->prepare($sqlcommand);
     if ($sentence->execute()) {
-      echo "<h3>Se ha añadido al agente</h3>";
+        return true;
     }
+    
   }
 
 }

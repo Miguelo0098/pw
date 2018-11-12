@@ -25,7 +25,7 @@ echo <<<_END
 		<h1><b>Special Agents Database</b></h1>
 
 		<h3 allign='center'>Lista de agentes</h3>
-		<h5 allign='center'><a href="anadirEmployee.php">Añadir agente</a></h5>
+		<h5 allign='center'><a href="addemployee.php">Añadir agente</a></h5>
 		<table align='center'>
 			<tr align='center'>
 				<th>Id</th>

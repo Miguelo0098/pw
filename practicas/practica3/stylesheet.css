@@ -28,7 +28,8 @@ h5{
 }
 #cookies {
   color: white;
-  position: relative;
+  position: absolute;
+  position: fixed;
   bottom: 0;
   font-size: 12px;
   background-color: #222;
@@ -37,6 +38,7 @@ h5{
 
 #back{
   text-align: center;
+  padding-bottom: 100px;
 }
 
 th{
