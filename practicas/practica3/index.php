@@ -40,7 +40,7 @@ _END;
 				<td>$employee[ID]</td>
 				<td>$employee[NICK]</td>
 				<td><a href="employee.php?employee=$employee[ID]"><img id="icono" src="./pics/info.png" alt="Info"></a>
-				<a href="editaremployee.php?employee=$employee[ID]"><img id="icono" src="./pics/edit.png" alt="Editar"></a>
+				<a href="editarEmployee.php?employee=$employee[ID]"><img id="icono" src="./pics/edit.png" alt="Editar"></a>
 					<a href="borrarEmployee.php?employee=$employee[ID]"><img id="icono" src="./pics/delete.png" alt="Borrar"></a>
 				</td>
 _END;

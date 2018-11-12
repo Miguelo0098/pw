@@ -9,6 +9,7 @@
 
 <?php
 
+$ID = $_GET["employee"];
 require_once('employeefunctions.php');
 
 /* Create queries object */
@@ -19,15 +20,14 @@ if(empty($q->dbc)){
 }
 
 /* Check is the book is going to be modified */
-if (isset($_POST['addagent'])){
+if (isset($_POST['editagent'])){
 
     //Check if cancel button has been selected
 
         $check = true;
 
         //Get the new book values
-        $newid = $q->maxIdEmployee();
-        $agent[0] = $newid[0] + 1;
+        $agent[0] = $ID;
         $agent[1] = $_POST['username'];
         $agent[2] = $_POST['nick'];
         $agent[3] = $_POST['gender'];
@@ -38,7 +38,8 @@ if (isset($_POST['addagent'])){
 
 
         if($check){
-            $status = $q->addEmployee($agent);
+            $status = $q->updateEmployee($agent);
+			var_dump($status);
             //If correctly added, go to books page
             if($status){
                 header('Location: /index.php');
@@ -53,25 +54,45 @@ if (isset($_POST['addagent'])){
 
 
 }
+if (isset($employee)) {
+	$employee = $q->getEmployee($ID);
+}
+$employee = $q->getEmployee($ID);
 
 echo <<<_END
 	<body>
 		<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
 		<h1><b>Special Agents Database</b></h1>
-		<h3>Creacion de un nuevo miembro</h3>
-		<form action="addemployee.php" method="post">
-			Name (encrypted):<br>
-			<input type="text" name="username" required><br>
+		<h3>Editar miembro</h3>
+		<form action="editarEmployee.php?employee=$employee[ID]" method="post">
+			Name:<br>
+			<input type="text" name="username" required value="$employee[NOMBRE]"><br>
 
 			<br>Nick:<br>
-			<input type="text" name="nick" required><br>
-
+			<input type="text" name="nick" required value="$employee[NICK]"><br>
 			<br>Sexo:<br>
-			<input type="radio" name="gender" value="Hombre" checked> Hombre<br>
-			<input type="radio" name="gender" value="Mujer"> Mujer<br>
-			<input type="radio" name="gender" value="Otro"> Otro<br>
+_END;
+	if ($employee['SEXO'] = "Hombre") {
+		echo "<input type='radio' name='gender' value='Hombre' checked> Hombre<br>";
+	}else{
+		echo "<input type='radio' name='gender' value='Hombre'> Hombre<br>";
+	}
+	if ($employee['SEXO'] = "Mujer") {
+		echo "<input type='radio' name='gender' value='Mujer' checked> Mujer<br>";
+	}else{
+		echo "<input type='radio' name='gender' value='Mujer'> Mujer<br>";
+	}
+	if ($employee['SEXO'] = "Otro") {
+		echo "<input type='radio' name='gender' value='Otro' checked> Otro<br>";
+	}else{
+		echo "<input type='radio' name='gender' value='Otro'> Otro<br>";
+	}
+echo <<<_END
+
+
 			<br>Edad:<br>
 			<select name="edad">
+				<option selected="selected">$employee[EDAD]</option>
 _END;
 			for ($i=16; $i < 100; $i++) {
 				echo "<option value='$i'>$i</option>";
@@ -79,14 +100,13 @@ _END;
 echo <<<_END
 			</select>
 			<br>Especialidad:<br>
-			<input type="text" name="specialty" value="" required><br>
+			<input type="text" name="specialty" value="$employee[ESPECIALIDAD]" required><br>
 			<br>Foto<br>
-			<input type="text" name="photo"><br>
+			<input type="text" name="photo" value="$employee[PHOTO]"><br>
 			<br>Direccion de contacto:<br>
-			<input type="text" name="contactInfo" required><br>
+			<input type="text" name="contactInfo" required value="$employee[CONTACTO]"><br>
 			<br>
-            <input type="checkbox" name="terms" required>Acepto los términos y condiciones<br>
-			<input type="submit" name="addagent" value="Añadir">
+			<input type="submit" name="editagent" value="Confirmar">
 		</form>
 	<a id="back" href="./index.php">Atrás</a>
   	<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>

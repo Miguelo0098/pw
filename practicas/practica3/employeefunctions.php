@@ -49,6 +49,7 @@ class EmployeeQueries{
   }
 
   public function getEmployee($id){
+    $row = [];
     $sqlcommand = "SELECT * FROM EMPLOYEES WHERE ID=".$id;
     $sentence = $this->dbc->prepare($sqlcommand);
     if ($sentence->execute()) {
@@ -81,7 +82,16 @@ class EmployeeQueries{
     if ($sentence->execute()) {
         return true;
     }
-    
+
+  }
+
+  public function updateEmployee($agent){
+    $sqlcommand = "UPDATE `EMPLOYEES` SET `NOMBRE`='$agent[1]',`NICK`='$agent[2]',`SEXO`='$agent[3]',`EDAD`='$agent[4]',`PHOTO`='$agent[5]',`ESPECIALIDAD`='$agent[6]',`CONTACTO`='$agent[7]' WHERE ID='$agent[0]'";
+    $sentence = $this->dbc->prepare($sqlcommand);
+    if ($sentence->execute()) {
+        return true;
+    }
+
   }
 
 }

@@ -60,7 +60,7 @@ echo <<<_END
 		<h1><b>Special Agents Database</b></h1>
 		<h3>Creacion de un nuevo miembro</h3>
 		<form action="addemployee.php" method="post">
-			Name (encrypted):<br>
+			Name:<br>
 			<input type="text" name="username" required><br>
 
 			<br>Nick:<br>
