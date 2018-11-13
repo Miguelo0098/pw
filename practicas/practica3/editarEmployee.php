@@ -65,17 +65,26 @@ echo <<<_END
 		<h1><b>Special Agents Database</b></h1>
 		<h3>Editar miembro</h3>
 		<form action="editarEmployee.php?employee=$employee[ID]" method="post">
-			Name:<br>
-			<input type="text" name="username" required value="$employee[NOMBRE]"><br>
-
-			<br>Nick:<br>
-			<input type="text" name="nick" required value="$employee[NICK]"><br>
-			<br>Sexo:<br>
+		<table align="center" style="margin: 0 auto;">
+		<tr align="left">
+			<th id="addedit">Formulario</th>
+			<th id="addedit"></th>
+		</tr>
+		<tr align="left">
+			<td>Name</td>
+			<td><input type="text" name="username" required value="$employee[NOMBRE]"></td>
+		</tr>
+		<tr align="left">
+			<td>Nick</td>
+			<td><input type="text" name="nick" required value="$employee[NICK]"></td>
+		</tr>
+		<tr align="left">
+			<td>Sexo</td>
 _END;
 	if ($employee['SEXO'] = "Hombre") {
-		echo "<input type='radio' name='gender' value='Hombre' checked> Hombre<br>";
+		echo "<td><input type='radio' name='gender' value='Hombre' checked> Hombre<br>";
 	}else{
-		echo "<input type='radio' name='gender' value='Hombre'> Hombre<br>";
+		echo "<td><input type='radio' name='gender' value='Hombre'> Hombre<br>";
 	}
 	if ($employee['SEXO'] = "Mujer") {
 		echo "<input type='radio' name='gender' value='Mujer' checked> Mujer<br>";
@@ -83,30 +92,40 @@ _END;
 		echo "<input type='radio' name='gender' value='Mujer'> Mujer<br>";
 	}
 	if ($employee['SEXO'] = "Otro") {
-		echo "<input type='radio' name='gender' value='Otro' checked> Otro<br>";
+		echo "<input type='radio' name='gender' value='Otro' checked> Otro</td>";
 	}else{
-		echo "<input type='radio' name='gender' value='Otro'> Otro<br>";
+		echo "<input type='radio' name='gender' value='Otro'> Otro</td>";
 	}
 echo <<<_END
 
-
-			<br>Edad:<br>
-			<select name="edad">
+		</tr>
+		<tr align="left">
+			<td>Edad</td><br>
+			<td><select name="edad">
 				<option selected="selected">$employee[EDAD]</option>
 _END;
 			for ($i=16; $i < 100; $i++) {
 				echo "<option value='$i'>$i</option>";
 			}
 echo <<<_END
-			</select>
-			<br>Especialidad:<br>
-			<input type="text" name="specialty" value="$employee[ESPECIALIDAD]" required><br>
-			<br>Foto<br>
-			<input type="text" name="photo" value="$employee[PHOTO]"><br>
-			<br>Direccion de contacto:<br>
-			<input type="text" name="contactInfo" required value="$employee[CONTACTO]"><br>
-			<br>
-			<input type="submit" name="editagent" value="Confirmar">
+			</select></td>
+		</tr>
+		<tr align="left">
+			<td>Especialidad</td>
+			<td><input type="text" name="specialty" value="$employee[ESPECIALIDAD]" required></td>
+		</tr>
+		<tr align="left">
+			<td>Foto</td>
+			<td><input type="text" name="photo" value="$employee[PHOTO]"></td>
+		</tr>
+		<tr align="left">
+			<td>Direccion de contacto</td>
+			<td><input type="text" name="contactInfo" required value="$employee[CONTACTO]"></td>
+		</tr>
+		<tr align="left">
+			<td><input type="submit" name="editagent" value="Confirmar"></td>
+		</tr>
+		</table>
 		</form>
 	<a id="back" href="./index.php">Atrás</a>
   	<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>

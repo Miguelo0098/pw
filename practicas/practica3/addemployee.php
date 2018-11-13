@@ -60,33 +60,53 @@ echo <<<_END
 		<h1><b>Special Agents Database</b></h1>
 		<h3>Creacion de un nuevo miembro</h3>
 		<form action="addemployee.php" method="post">
-			Name:<br>
-			<input type="text" name="username" required><br>
-
-			<br>Nick:<br>
-			<input type="text" name="nick" required><br>
-
-			<br>Sexo:<br>
-			<input type="radio" name="gender" value="Hombre" checked> Hombre<br>
+		<table align="center" style="margin: 0 auto;">
+		<tr align="left">
+			<th id="addedit">Formulario</th>
+			<th id="addedit"></th>
+		</tr>
+		<tr align="left">
+			<td>Name</td>
+			<td><input type="text" name="username" required></td>
+		</tr>
+		<tr align="left">
+			<td>Nick</td>
+			<td><input type="text" name="nick" required></td>
+		</tr>
+		<tr align="left">
+			<td>Sexo</td>
+			<td><input type="radio" name="gender" value="Hombre" checked> Hombre<br>
 			<input type="radio" name="gender" value="Mujer"> Mujer<br>
-			<input type="radio" name="gender" value="Otro"> Otro<br>
-			<br>Edad:<br>
-			<select name="edad">
+			<input type="radio" name="gender" value="Otro"> Otro</tr>
+		</tr>
+		<tr align="left">
+			<td>Edad</td>
+			<td><select name="edad">
 _END;
 			for ($i=16; $i < 100; $i++) {
 				echo "<option value='$i'>$i</option>";
 			}
 echo <<<_END
-			</select>
-			<br>Especialidad:<br>
-			<input type="text" name="specialty" value="" required><br>
-			<br>Foto<br>
-			<input type="text" name="photo"><br>
-			<br>Direccion de contacto:<br>
-			<input type="text" name="contactInfo" required><br>
-			<br>
-            <input type="checkbox" name="terms" required>Acepto los términos y condiciones<br>
-			<input type="submit" name="addagent" value="Añadir">
+			</select></td>
+		</tr>
+		<tr align="left">
+			<td>Especialidad</td>
+			<td><input type="text" name="specialty" value="" required></td>
+		</tr>
+		<tr align="left">
+			<td>Foto</td>
+			<td><input type="text" name="photo"></td>
+		</tr>
+		<tr align="left">
+			<td>Direccion de contacto</td>
+			<td><input type="text" name="contactInfo" required></td>
+		</tr>
+		<tr align="left">
+
+			<td><input type="submit" name="addagent" value="Añadir"></td>
+			<td><input type="checkbox" name="terms" required>Acepto los términos y condiciones</td>
+		</tr>
+		</table>
 		</form>
 	<a id="back" href="./index.php">Atrás</a>
   	<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>

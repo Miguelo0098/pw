@@ -50,7 +50,7 @@ th{
 table, td{
   border: 1px solid black;
   border-collapse: collapse;
-  text-align: center;
+
 }
 
 #icono{
@@ -60,4 +60,8 @@ table, td{
 form{
   align-content: center;
   text-align: center;
+}
+
+#addedit{
+    border: 0px;
 }

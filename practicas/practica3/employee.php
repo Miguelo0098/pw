@@ -42,7 +42,7 @@ echo <<<_END
 					<th>Contacto</th>
 				</tr>
 				<tr allign='center'>
-					<td><img id="profilepic" src="$databaseUser[PHOTO]" alt="$databaseUser[PHOTO]"></td>
+					<td><img id="profilepic" src="./pics/$databaseUser[PHOTO]" alt="$databaseUser[PHOTO]"></td>
 					<td>$databaseUser[NICK]</td>
 					<td>$databaseUser[NOMBRE]</td>
 					<td>$databaseUser[SEXO]</td>
