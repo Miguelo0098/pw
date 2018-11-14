@@ -4,6 +4,12 @@ h1{
   right: 0;
   text-align: right;
 }
+#login{
+    position: absolute;
+    top: auto;
+    right: auto;
+    text-align: right;
+}
 body{
   background-color: white;
   font-family: ubuntu;
