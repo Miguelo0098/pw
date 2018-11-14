@@ -81,17 +81,18 @@ echo <<<_END
 		<tr align="left">
 			<td>Sexo</td>
 _END;
-	if ($employee['SEXO'] = "Hombre") {
+	echo "$employee[SEXO]";
+	if ($employee['SEXO'] == "Hombre") {
 		echo "<td><input type='radio' name='gender' value='Hombre' checked> Hombre<br>";
 	}else{
 		echo "<td><input type='radio' name='gender' value='Hombre'> Hombre<br>";
 	}
-	if ($employee['SEXO'] = "Mujer") {
+	if ($employee['SEXO'] == "Mujer") {
 		echo "<input type='radio' name='gender' value='Mujer' checked> Mujer<br>";
 	}else{
 		echo "<input type='radio' name='gender' value='Mujer'> Mujer<br>";
 	}
-	if ($employee['SEXO'] = "Otro") {
+	if ($employee['SEXO'] == "Otro") {
 		echo "<input type='radio' name='gender' value='Otro' checked> Otro</td>";
 	}else{
 		echo "<input type='radio' name='gender' value='Otro'> Otro</td>";
