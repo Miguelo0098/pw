@@ -94,4 +94,32 @@ class EmployeeQueries{
 
   }
 
+  public function addUser($user){
+      $sqlcommand = "INSERT INTO `USERS`(`USERNAME`, `PASSWORD`, `ADMIN`) VALUES ('$user[0]','$user[1]', 0)";
+      $sentence = $this->dbc->prepare($sqlcommand);
+      if ($sentence->execute()) {
+          return true;
+      }
+  }
+
+  public function getUser($username){
+      $row = [];
+      $sqlcommand = "SELECT * FROM USERS WHERE USERNAME=".$username;
+      $sentence = $this->dbc->prepare($sqlcommand);
+      if ($sentence->execute()) {
+        $row = $sentence->fetch();
+      }
+      return $row;
+  }
+
+  public function verifyUser($user){
+      $row = getUser($user[0]);
+      if ($row != NULL) {
+          if ($row['PASSWORD'] == $user[1]) {
+              return true;
+          }
+      }
+      return false;
+  }
+
 }
