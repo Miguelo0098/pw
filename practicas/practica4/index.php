@@ -10,6 +10,7 @@
 <?php
 	/* Incluyo las funciones de consulta de la base de datos */
 	require_once('employeefunctions.php');
+	require_once('session.php');
 
 	$query = new EmployeeQueries();
 
@@ -23,6 +24,14 @@
 echo <<<_END
 		<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
 		<h1><b>Special Agents Database</b></h1>
+_END;
+	if (logged == true) {
+		echo "<h5 id="login">Bienvenido $username</h5>";
+	}else{
+		echo "<h5 id="login">Iniciar Sesión $username</h5>";
+	}
+
+echo <<<_END
 
 		<h3 allign='center'>Lista de agentes</h3>
 		<h5 allign='center'><a href="addemployee.php">Añadir agente</a></h5>
