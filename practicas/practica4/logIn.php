@@ -45,3 +45,27 @@
 		$password = hash(trim('md5', $_POST["password"]));
 	}
 	//Nota: $password lleva una encriptacion md5
+		
+	// Validamos las credenciales
+	if(empty($username_err) && empty($password_err)){
+		$user[0] = $username;
+		$user[1] = $password;
+
+		if($query->verifyUser($user)){
+			//El proceso de inicio sesion ha sido correcto
+
+			//Establezco tokens y variables de sesion.
+			$_SESSION['loggedin'] = true;
+			$_SESSION['name'] = $row['Name'];
+			$_SESSION['start'] = time();
+			$_SESSION['expire'] = $_SESSION['start'] + (1 * 60);
+
+			//Aqui podria escribir lo que sea
+
+			echo "<div class='alert alert-success' role='alert'><strong>Welcome!</strong> $row[Name] <p><a href='edit-profile.php'>Edit Profile</a></p><p><a href='logout.php'>Logout</a></p></div>";
+
+		}else{
+			echo "<div class='alert-danger' role='alert'>Email or Password are incorrect!<p><a href='login.php'><strong>Please try again!</strong></a></p></div>";
+		}
+	}
+?>
