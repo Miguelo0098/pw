@@ -26,11 +26,7 @@ echo <<<_END
 _END;
 
 	// Compruebo si el usuario esta iniciado sesion
-	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
-		header("location: index.php");
-		exit;
-
-	}
+if(isset($_POST['login'])){
 
 	// Definimos algunas variables para comprobar el inicio de sesion
 	$username = $password = "";
@@ -68,6 +64,13 @@ _END;
 			echo "<div class='alert-danger' role='alert'>Email or Password are incorrect!<p><a href='login.php'><strong>Please try again!</strong></a></p></div>";
 		}
 
+		if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
+			header("location: index.php");
+			exit;
+
+		}
+	}
+
 
 	// Este condicional se encarga de gestionar el proceso de inicio de sesion
 
@@ -88,11 +91,14 @@ _END;
 				<td>Contraseña</td>
 				<td><input type="text" name="password" required></td>
 			</tr>
+			<tr align="left">
+    			<td><input type="submit" name="login" value="Iniciar sesion"></td>
+  			</tr>
 			</table>
 			</form>
 _END;
 
-		
+
 
 ?>
 </body>
