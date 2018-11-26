@@ -3,12 +3,12 @@
     session_start();
 
     if (isset($_SESSION['username'])) {
-        $logged = true;
-        $username = $_SESSION['username'];
-        $admin = $_SESSION]['admin'];
+        define("LOGGED", true);
+        define("USERNAME", $_SESSION['username']);
+        define("ADMIN", $_SESSION['admin']);
 
     }else{
-        $logged = false;
+        define("LOGGED", false);
     }
 
 ?>

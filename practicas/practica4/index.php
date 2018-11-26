@@ -25,10 +25,10 @@ echo <<<_END
 		<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
 		<h1><b>Special Agents Database</b></h1>
 _END;
-	if (logged == true) {
-		echo "<h5 id="login">Bienvenido $username</h5>";
+	if (LOGGED == true) {
+		echo "<h5 id='login'>Bienvenido ".USERNAME."</h5>";
 	}else{
-		echo "<h5 id="login">Iniciar Sesión $username</h5>";
+		echo "<h5 id='login'><a href='login.php'>Iniciar Sesión | Registrarse</a></h5>";
 	}
 
 echo <<<_END
