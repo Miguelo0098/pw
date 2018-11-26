@@ -23,13 +23,17 @@
 		die();
 	}
 
+	if (time() >= $_SESSION['expire']) {
+		session_destroy();
+	}
+
 	/* Obtengo el listado de empleados */
 echo <<<_END
 		<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
 		<h1><b>Special Agents Database</b></h1>
 _END;
-	if (LOGGED == true) {
-		echo "<h5 id='login'>Bienvenido ".USERNAME."</h5>";
+	if ($_SESSION['loggedin'] == true) {
+		echo "<h5 id='login'>Bienvenido ".USERNAME." | <a href='logout.php'>Cerrar Sesión</a></h5>";
 	}else{
 		echo "<h5 id='login'><a href='login.php'>Iniciar Sesión | Registrarse</a></h5>";
 	}
@@ -38,7 +42,7 @@ echo <<<_END
 
 		<h3 allign='center'>Lista de agentes</h3>
 _END;
-	if (LOGGED && ADMIN) {
+	if ($_SESSION['loggedin'] == true && $_SESSION['admin'] == true) {
 		echo "<h5 allign='center'><a href='addemployee.php'>Añadir agente</a></h5>";
 	}
 echo <<<_END
