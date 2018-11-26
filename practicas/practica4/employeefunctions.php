@@ -102,9 +102,9 @@ class EmployeeQueries{
       }
   }
 
-  public function getUser($username){
+  public function getUser($user){
       $row = [];
-      $sqlcommand = "SELECT * FROM USERS WHERE USERNAME=".$username;
+      $sqlcommand = "SELECT * FROM `USERS` WHERE `USERNAME`='$user[0]'";
       $sentence = $this->dbc->prepare($sqlcommand);
       if ($sentence->execute()) {
         $row = $sentence->fetch();
@@ -113,9 +113,10 @@ class EmployeeQueries{
   }
 
   public function verifyUser($user){
-      $row = self::getUser($user[0]);
+      $row = self::getUser($user);
+      var_dump($row);
       if ($row != NULL) {
-          if ($row['PASSWORD'] == $user[1]) {
+          if (strnatcasecmp($row[1], $user[1]) == 0) {
               return true;
           }
       }

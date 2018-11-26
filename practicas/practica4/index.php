@@ -1,3 +1,6 @@
+<?php
+	require_once('session.php');
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,7 +13,7 @@
 <?php
 	/* Incluyo las funciones de consulta de la base de datos */
 	require_once('employeefunctions.php');
-	require_once('session.php');
+
 
 	$query = new EmployeeQueries();
 

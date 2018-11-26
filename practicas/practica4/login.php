@@ -1,3 +1,6 @@
+<?php
+	require_once('session.php');
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -38,6 +41,7 @@ _END;
 		// Aqui recibe la contrasena y revisa si el campo se ha enviado vacio
 		if (isset($_POST['password']))
 			$password = hash('md5', $_POST['password']);
+
 		//Nota: $password lleva una encriptacion md5
 
 		// Validamos las credenciales
@@ -45,12 +49,17 @@ _END;
 		$user[1] = $password;
 
 		if($query->verifyUser($user)) { //El proceso de inicio sesion ha sido correcto
-
+			$row = $query->getUser($user);
 			//Establezco tokens y variables de sesion.
 			$_SESSION['loggedin'] = true;
-			$_SESSION['name'] = $row['Name'];
+			$_SESSION['name'] = $row[0];
 			$_SESSION['start'] = time();
 			$_SESSION['expire'] = $_SESSION['start'] + (1 * 60);
+			if ($row[2] == 1) {
+				$_SESSION['admin'] = true;
+			}else{
+				$_SESSION['admin'] = false;
+			}
 
 			//Aqui podria escribir lo que sea
 
@@ -94,7 +103,7 @@ _END;
   		</tr>
 		</table>
 		</form>
-		
+
 		<br><br>
 
 		<form action="login.php" method="post">
