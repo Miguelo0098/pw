@@ -20,10 +20,9 @@
 	}
 
 echo <<<_END
-	<body>
-		<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
-		<h1><b>Special Agents Database</b></h1>
-		<h3>Inicio de sesion.</h3>
+	<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
+	<h1><b>Special Agents Database</b></h1>
+	<h3>Inicio de sesion.</h3>
 _END;
 
 	// Compruebo si el usuario esta iniciado sesion
@@ -32,7 +31,7 @@ _END;
 		exit;
 		
 		echo <<<_END
-			<h4>El usuario ya tiene la sesion iniciada.</h4>
+			El usuario ya tiene la sesion iniciada.
 _END;
 
 	}
@@ -62,7 +61,6 @@ _END;
 			</tr>
 			</table>
 			</form>
-			</body>
 _END;
 
 		// Aqui recibe el username y revisa si el campo se ha enviado vacio
