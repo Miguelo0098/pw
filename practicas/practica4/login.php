@@ -9,7 +9,7 @@
 
 <?php
 
-	require_once('employeeFunctions.hpp');
+	require_once('employeefunctions.php');
 
 	$query = new EmployeeQueries();
 
@@ -29,7 +29,7 @@ _END;
 	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
 		header("location: welcome.php");
 		exit;
-		
+
 		echo <<<_END
 			El usuario ya tiene la sesion iniciada.
 _END;
