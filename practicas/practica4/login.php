@@ -19,10 +19,22 @@
 		die();
 	}
 
+echo <<<_END
+	<body>
+		<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
+		<h1><b>Special Agents Database</b></h1>
+		<h3>Inicio de sesion.</h3>
+_END;
+
 	// Compruebo si el usuario esta iniciado sesion
 	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
 		header("location: welcome.php");
 		exit;
+		
+		echo <<<_END
+			<h4>El usuario ya tiene la sesion iniciada.</h4>
+_END;
+
 	}
 
 	// Definimos algunas variables para comprobar el inicio de sesion
@@ -31,6 +43,27 @@
 
 	// Este condicional se encarga de gestionar el proceso de inicio de sesion
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
+		//Aqui es donde tengo los formularios encargados de obtener los datos de inicio de sesion.
+
+		echo <<<_END
+			<form action="login.php" method="post">
+			<table align="center" style="margin: 0 auto;">
+			<tr align="left">
+				<th id="addedit">Inicio de sesion</th>
+				<th id="addedit"></th>
+			</tr>
+			<tr align="left">
+				<td>Nombre de usuario</td>
+				<td><input type="text" name="username" required></td>
+			</tr>
+			<tr align="left">
+				<td>Contraseña</td>
+				<td><input type="text" name="password" required></td>
+			</tr>
+			</table>
+			</form>
+			</body>
+_END;
 
 		// Aqui recibe el username y revisa si el campo se ha enviado vacio
 		if(empty(trim($_POST["username"])))
