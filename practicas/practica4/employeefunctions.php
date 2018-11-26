@@ -113,7 +113,7 @@ class EmployeeQueries{
   }
 
   public function verifyUser($user){
-      $row = getUser($user[0]);
+      $row = self::getUser($user[0]);
       if ($row != NULL) {
           if ($row['PASSWORD'] == $user[1]) {
               return true;
