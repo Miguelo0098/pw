@@ -28,7 +28,7 @@
 	// Definimos algunas variables para comprobar el inicio de sesion
 	$username = $password = "";
 	$username_err = $password_err = "";
- 
+
 	// Este condicional se encarga de gestionar el proceso de inicio de sesion
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -45,7 +45,7 @@
 		$password = hash(trim('md5', $_POST["password"]));
 	}
 	//Nota: $password lleva una encriptacion md5
-		
+
 	// Validamos las credenciales
 	if(empty($username_err) && empty($password_err)){
 		$user[0] = $username;
