@@ -93,9 +93,11 @@ _END;
     		<td><input type="submit" name="login" value="Iniciar sesion"></td>
   		</tr>
 		</table>
-
+		</form>
+		
 		<br><br>
 
+		<form action="login.php" method="post">
 		<table align="center" style="margin: 0 auto;">
 		<tr align="left">
 			<th id="addedit">Registro de nuevos usuarios</th>
