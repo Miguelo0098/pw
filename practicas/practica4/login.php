@@ -26,30 +26,26 @@ echo <<<_END
 _END;
 
 	// Compruebo si el usuario esta iniciado sesion
-if(isset($_POST['login'])){
+	if(isset($_POST['login'])) {
 
-	// Definimos algunas variables para comprobar el inicio de sesion
-	$username = $password = "";
-	// Aqui recibe el username y revisa si el campo se ha enviado vacio
-	if (isset($_POST['username'])) {
-		$username = $_POST['username'];
-	}
+		// Definimos algunas variables para comprobar el inicio de sesion
+		$username = $password = "";
 
-	// Aqui recibe la contrasena y revisa si el campo se ha enviado vacio
+		// Aqui recibe el username y revisa si el campo se ha enviado vacio
+		if (isset($_POST['username']))
+			$username = $_POST['username'];
 
-	if (isset($_POST['password'])) {
-		$password = hash('md5', $_POST['password']);
-	}
+		// Aqui recibe la contrasena y revisa si el campo se ha enviado vacio
+		if (isset($_POST['password']))
+			$password = hash('md5', $_POST['password']);
+		//Nota: $password lleva una encriptacion md5
 
-	//Nota: $password lleva una encriptacion md5
+		// Validamos las credenciales
+		$user[0] = $username;
+		$user[1] = $password;
 
-	// Validamos las credenciales
-	$user[0] = $username;
-	$user[1] = $password;
-
-		if($query->verifyUser($user)){
-			//El proceso de inicio sesion ha sido correcto
-
+		if($query->verifyUser($user)) { //El proceso de inicio sesion ha sido correcto
+			
 			//Establezco tokens y variables de sesion.
 			$_SESSION['loggedin'] = true;
 			$_SESSION['name'] = $row['Name'];
@@ -69,36 +65,60 @@ if(isset($_POST['login'])){
 			exit;
 
 		}
+	}else{
+		//Si no estamos iniciado sesion, asumimos que estamos registrandonos
+
+		// Definimos algunas variables para comprobar el inicio de sesion
+		$username = $password = $passwordVerifier = "";
 	}
 
+	//Aqui es donde tengo los formularios encargados de obtener los datos de inicio de sesion.
 
-	// Este condicional se encarga de gestionar el proceso de inicio de sesion
+	echo <<<_END
+		<form action="login.php" method="post">
+		<table align="center" style="margin: 0 auto;">
+		<tr align="left">
+			<th id="addedit">Inicio de sesion</th>
+			<th id="addedit"></th>
+		</tr>
+		<tr align="left">
+			<td>Nombre de usuario</td>
+			<td><input type="text" name="username" required></td>
+		</tr>
+		<tr align="left">
+			<td>Contraseña</td>
+			<td><input type="text" name="password" required></td>
+		</tr>
+		<tr align="left">
+    		<td><input type="submit" name="login" value="Iniciar sesion"></td>
+  		</tr>
+		</table>
 
-		//Aqui es donde tengo los formularios encargados de obtener los datos de inicio de sesion.
+		<b></b>
 
-		echo <<<_END
-			<form action="login.php" method="post">
-			<table align="center" style="margin: 0 auto;">
-			<tr align="left">
-				<th id="addedit">Inicio de sesion</th>
-				<th id="addedit"></th>
-			</tr>
-			<tr align="left">
-				<td>Nombre de usuario</td>
-				<td><input type="text" name="username" required></td>
-			</tr>
-			<tr align="left">
-				<td>Contraseña</td>
-				<td><input type="text" name="password" required></td>
-			</tr>
-			<tr align="left">
-    			<td><input type="submit" name="login" value="Iniciar sesion"></td>
-  			</tr>
-			</table>
-			</form>
+		<table align="center" style="margin: 0 auto;">
+		<tr align="left">
+			<th id="addedit">Registro de nuevos usuarios</th>
+			<th id="addedit"></th>
+		</tr>
+		<tr align="left">
+			<td>Nombre de usuario</td>
+			<td><input type="text" name="username" required></td>
+		</tr>
+		<tr align="left">
+			<td>Contraseña</td>
+			<td><input type="text" name="password" required></td>
+		</tr>
+		<tr align="left">
+			<td>Comprobar contraseña</td>
+			<td><input type="text" name="passwordVerifier" required></td>
+		</tr>
+		<tr align="left">
+    		<td><input type="submit" name="register" value="Registrar usuario"></td>
+  		</tr>
+		</table>
+		</form>
 _END;
-
-
 
 ?>
 </body>
