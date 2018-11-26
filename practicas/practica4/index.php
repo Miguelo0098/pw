@@ -52,11 +52,21 @@ _END;
 			<tr allign='center'>
 				<td>$employee[ID]</td>
 				<td>$employee[NICK]</td>
-				<td><a href="employee.php?employee=$employee[ID]"><img id="icono" src="./pics/info.png" alt="Info"></a>
-				<a href="editarEmployee.php?employee=$employee[ID]"><img id="icono" src="./pics/edit.png" alt="Editar"></a>
-					<a href="borrarEmployee.php?employee=$employee[ID]"><img id="icono" src="./pics/delete.png" alt="Borrar"></a>
-				</td>
 _END;
+		if (LOGGED) {
+			echo "<td><a href='employee.php?employee=$employee[ID]'><img id='icono' src='./pics/info.png' alt='Info'></a>";
+			if (ADMIN) {
+			echo <<<_END
+				<a href="editarEmployee.php?employee=$employee[ID]"><img id="icono" src="./pics/edit.png" alt="Editar"></a>
+				<a href="borrarEmployee.php?employee=$employee[ID]"><img id="icono" src="./pics/delete.png" alt="Borrar"></a>
+_END;
+			}
+			echo "</td>";
+		}else{
+			echo <<<_END
+			<td>Inicia sesión para ver las opciones</td>
+_END;
+		}
 	}
 	echo <<<_END
 		</table>
