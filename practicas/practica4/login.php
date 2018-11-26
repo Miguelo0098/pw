@@ -45,7 +45,7 @@ _END;
 		$user[1] = $password;
 
 		if($query->verifyUser($user)) { //El proceso de inicio sesion ha sido correcto
-			
+
 			//Establezco tokens y variables de sesion.
 			$_SESSION['loggedin'] = true;
 			$_SESSION['name'] = $row['Name'];
@@ -94,7 +94,7 @@ _END;
   		</tr>
 		</table>
 
-		<b></b>
+		<br>
 
 		<table align="center" style="margin: 0 auto;">
 		<tr align="left">
