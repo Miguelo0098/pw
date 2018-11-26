@@ -1,3 +1,7 @@
+<?php
+	require_once('session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,19 +13,23 @@
 
 <?php
 
-require_once('employeefunctions.php');
+	require_once('employeefunctions.php');
 
-/* Create queries object */
-$q = new EmployeeQueries();
-if(empty($q->dbc)){
-    echo "<h3 align='center'>¡Error!: No se pudo establecer la conexión con la base de datos.</h3><br/>";
-    die();
-}
+	/* Create queries object */
+	$q = new EmployeeQueries();
+	if(empty($q->dbc)){
+	    echo "<h3 align='center'>¡Error!: No se pudo establecer la conexión con la base de datos.</h3><br/>";
+	    die();
+	}
 
-/* Check is the book is going to be modified */
-if (isset($_POST['addagent'])){
+	if (time() >= $_SESSION['expire']) {
+		session_destroy();
+	}
 
-    //Check if cancel button has been selected
+	/* Check is the book is going to be modified */
+	if (isset($_POST['addagent'])){
+
+    	//Check if cancel button has been selected
 
         $check = true;
 
@@ -37,22 +45,16 @@ if (isset($_POST['addagent'])){
         $agent[7] = $_POST['contactInfo'];
 
 
-        if($check){
+        if($check) {
             $status = $q->addEmployee($agent);
             //If correctly added, go to books page
-            if($status){
+            if($status)
                 header('Location: /index.php');
-            }
-            else{
+            else
                 echo "<h3 align='center' style='color: red'>An error ocurred. Please try again.</h3><br>";
-            }
-        }else{
+        }else
             echo "<h3 align='center' style='color: red'>Please check the fields and try again.</h3><br>";
-        }
-
-
-
-}
+	}
 
 echo <<<_END
 	<body>
@@ -83,9 +85,9 @@ echo <<<_END
 			<td>Edad</td>
 			<td><select name="edad">
 _END;
-			for ($i=16; $i < 100; $i++) {
+			for ($i=16; $i < 100; $i++)
 				echo "<option value='$i'>$i</option>";
-			}
+
 echo <<<_END
 			</select></td>
 		</tr>
@@ -112,11 +114,7 @@ echo <<<_END
   	<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
 	</body>
 _END;
-
-
-	//Compruebo que se ha introducido todo
-
-
+	
 ?>
 
 </body>
