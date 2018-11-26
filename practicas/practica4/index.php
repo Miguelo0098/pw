@@ -34,7 +34,11 @@ _END;
 echo <<<_END
 
 		<h3 allign='center'>Lista de agentes</h3>
-		<h5 allign='center'><a href="addemployee.php">Añadir agente</a></h5>
+_END;
+	if (LOGGED && ADMIN) {
+		echo "<h5 allign='center'><a href='addemployee.php'>Añadir agente</a></h5>";
+	}
+echo <<<_END
 		<table align='center'>
 			<tr align='center'>
 				<th>Id</th>
