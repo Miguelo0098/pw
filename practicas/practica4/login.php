@@ -94,7 +94,7 @@ _END;
   		</tr>
 		</table>
 
-		<br>
+		<br><br>
 
 		<table align="center" style="margin: 0 auto;">
 		<tr align="left">
