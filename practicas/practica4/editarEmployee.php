@@ -131,7 +131,29 @@ echo <<<_END
 		</tr>
 		<tr align="left">
 			<td>Especialidad</td>
-			<td><input type="text" name="specialty" value="$employee[ESPECIALIDAD]" required></td>
+_END;
+
+	if(strpos($employee['SPECIALTY'], 'Observador') !== false)
+			echo "<td><input type='checkbox' name='specialty[]' value='Observador' checked>Observador<br>"
+	else
+		echo "<td><input type='checkbox' name='specialty[]' value='Observador'>Observador<br>"
+
+	if(strpos($employee['SPECIALTY'], 'Agil') !== false)
+			echo "<td><input type='checkbox' name='specialty[]' value='Agil' checked>Agil<br>"
+	else
+		echo "<td><input type='checkbox' name='specialty[]' value='Agil'>Agil<br>"
+
+	if(strpos($employee['SPECIALTY'], 'Sigiloso') !== false)
+		echo "<td><input type='checkbox' name='specialty[]' value='Sigiloso' checked>Sigiloso<br>"
+	else
+		echo "<td><input type='checkbox' name='specialty[]' value='Sigiloso'>Sigiloso<br>"
+
+	if(strpos($employee['SPECIALTY'], 'Inteligente') !== false)
+		echo "<td><input type='checkbox' name='specialty[]' value='Inteligente' checked>Inteligente<br></td>"
+	else
+		echo "<td><input type='checkbox' name='specialty[]' value='Inteligente'>Inteligente<br></td>"
+
+echo <<<_END
 		</tr>
 		<tr align="left">
 			<td>Foto</td>
