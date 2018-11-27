@@ -133,22 +133,22 @@ echo <<<_END
 			<td>Especialidad</td>
 _END;
 
-	if(strpos($employee['SPECIALTY'], 'Observador') !== false)
+	if(strpos($employee['ESPECIALIDAD'], 'Observador') !== false)
 			echo "<td><input type='checkbox' name='specialty[]' value='Observador' checked>Observador<br>"
 	else
 		echo "<td><input type='checkbox' name='specialty[]' value='Observador'>Observador<br>"
 
-	if(strpos($employee['SPECIALTY'], 'Agil') !== false)
+	if(strpos($employee['ESPECIALIDAD'], 'Agil') !== false)
 			echo "<td><input type='checkbox' name='specialty[]' value='Agil' checked>Agil<br>"
 	else
 		echo "<td><input type='checkbox' name='specialty[]' value='Agil'>Agil<br>"
 
-	if(strpos($employee['SPECIALTY'], 'Sigiloso') !== false)
+	if(strpos($employee['ESPECIALIDAD'], 'Sigiloso') !== false)
 		echo "<td><input type='checkbox' name='specialty[]' value='Sigiloso' checked>Sigiloso<br>"
 	else
 		echo "<td><input type='checkbox' name='specialty[]' value='Sigiloso'>Sigiloso<br>"
 
-	if(strpos($employee['SPECIALTY'], 'Inteligente') !== false)
+	if(strpos($employee['ESPECIALIDAD'], 'Inteligente') !== false)
 		echo "<td><input type='checkbox' name='specialty[]' value='Inteligente' checked>Inteligente<br></td>"
 	else
 		echo "<td><input type='checkbox' name='specialty[]' value='Inteligente'>Inteligente<br></td>"
