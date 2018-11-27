@@ -24,6 +24,7 @@
 
 	if (isset($_SESSION['expire']) && time() >= $_SESSION['expire']) {
 		session_destroy();
+		header("location: index.php");
 		exit();
 	}
 
