@@ -27,7 +27,7 @@
 echo <<<_END
 		<body>
 			<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
-			<h1><b>Special Agents Database</b></h1>
+			<h1 id='login'><b>Special Agents Database</b></h1>
 			<h3>Agente nº $databaseUser[ID]</h3>
 			<table align='center'>
 				<tr align='center'>
@@ -49,7 +49,7 @@ echo <<<_END
 					<td><a href="https://webmail.uco.es/horde/imp/compose.php?to=$databaseUser[CONTACTO]&uniq=1540292184179" target="_blank">$databaseUser[CONTACTO]</td>
 			</table>
 
-			<br> 
+			<br>
 			<h5>Esta seguro de que desea borrar este agente?</h5>
 			<form action="" method="POST">
 				<input type="submit" name="eraseSelection" value="Confirmar" />
@@ -62,7 +62,7 @@ _END;
 
 	if(isset($_POST["eraseSelection"])){
 		$query->deleteEmployee($ID);
-		
+
 	}
 ?>
 

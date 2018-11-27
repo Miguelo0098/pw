@@ -29,7 +29,7 @@
 echo <<<_END
 		<body>
 			<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
-			<h1><b>Special Agents Database</b></h1>
+			<h1 id='login'><b>Special Agents Database</b></h1>
 			<h3>Agente nº $databaseUser[ID]</h3>
 			<table align='center'>
 				<tr align='center'>

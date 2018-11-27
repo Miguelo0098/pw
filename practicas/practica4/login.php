@@ -24,7 +24,7 @@
 
 echo <<<_END
 	<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
-	<h1><b>Special Agents Database</b></h1>
+	<h1 id='login'><b>Special Agents Database</b></h1>
 	<h3>Inicio de sesion.</h3>
 _END;
 
@@ -131,7 +131,7 @@ _END;
 		</form>
 		<a id="back" href="./index.php">Atrás</a>
 		<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
-		
+
 _END;
 
 ?>

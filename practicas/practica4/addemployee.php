@@ -57,7 +57,7 @@ if (isset($_POST['addagent'])){
 echo <<<_END
 	<body>
 		<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
-		<h1><b>Special Agents Database</b></h1>
+		<h1 id='login'><b>Special Agents Database</b></h1>
 		<h3>Creacion de un nuevo miembro</h3>
 		<form action="addemployee.php" method="post">
 		<table align="center" style="margin: 0 auto;">
