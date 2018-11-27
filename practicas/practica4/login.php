@@ -30,7 +30,7 @@
 echo <<<_END
 	<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
 	<h1 id='login'><b>Special Agents Database</b></h1>
-	<h3>Inicio de sesion.</h3>
+	<h3>Inicio de sesion | Registro</h3>
 _END;
 
 	// Compruebo si el usuario esta iniciado sesion
@@ -79,11 +79,36 @@ _END;
 			exit;
 		}
 
-	}else{
-		//Si no estamos iniciado sesion, asumimos que estamos registrandonos
+	}else if (isset($_POST['register'])){
+		//Si no estamos iniciado sesion, estamos registrandonos
 
 		// Definimos algunas variables para comprobar el inicio de sesion
 		$username = $password = $passwordVerifier = "";
+
+
+		if (isset($_POST['username']))
+			$username = $_POST['username'];
+
+		// Aqui recibe la contrasena y revisa si el campo se ha enviado vacio
+		if (isset($_POST['password']))
+			$password = hash('md5', $_POST['password']);
+
+		if (isset($_POST['passwordVerifier'])) {
+			$passwordVerifier = hash('md5', $_POST['passwordVerifier']);
+		}
+
+		if ($password != $passwordVerifier) {
+			echo "<h3>Passwords do not match. Please try again</h3>";
+		}
+		else{
+			$user[0] = $username;
+			$user[1] = $password;
+			if ($query->addUser($user) == true) {
+				echo "<h3>Register Success! Please log in.</h3>";
+			}else{
+				echo "<h3>User already exists. Please try again</h3>";
+			}
+		}
 	}
 
 	//Aqui es donde tengo los formularios encargados de obtener los datos de inicio de sesion.
@@ -101,7 +126,7 @@ _END;
 		</tr>
 		<tr align="left">
 			<td>Contraseña</td>
-			<td><input type="text" name="password" required></td>
+			<td><input type="password" name="password" required></td>
 		</tr>
 		<tr align="left">
     		<td><input type="submit" name="login" value="Iniciar sesion"></td>
@@ -123,11 +148,11 @@ _END;
 		</tr>
 		<tr align="left">
 			<td>Contraseña</td>
-			<td><input type="text" name="password" required></td>
+			<td><input type="password" name="password" required></td>
 		</tr>
 		<tr align="left">
 			<td>Comprobar contraseña</td>
-			<td><input type="text" name="passwordVerifier" required></td>
+			<td><input type="password" name="passwordVerifier" required></td>
 		</tr>
 		<tr align="left">
     		<td><input type="submit" name="register" value="Registrar usuario"></td>

@@ -27,7 +27,8 @@
 
 	if (isset($_SESSION['expire']) && time() >= $_SESSION['expire']){
 		session_destroy();
-		header("location: index.php");
+		echo "<h3 align='center'>Su sesión ha caducado. Volviendo a la página principal.</h3><br/>";
+	    header("refresh: 5; http://localhost:80/index.php");
 		exit();
 	}
 
