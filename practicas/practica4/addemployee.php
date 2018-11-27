@@ -44,7 +44,7 @@
         $agent[3] = $_POST['gender'];
         $agent[4] = $_POST['edad'];
         $agent[5] = $_POST['photo'];
-        $agent[6] = $_POST['specialty'];
+        $agent[6] = implode(',', $_POST['specialty']);
         $agent[7] = $_POST['contactInfo'];
 
 
@@ -92,7 +92,7 @@ echo <<<_END
 			<td>Sexo</td>
 			<td><input type="radio" name="gender" value="Hombre" checked> Hombre<br>
 			<input type="radio" name="gender" value="Mujer"> Mujer<br>
-			<input type="radio" name="gender" value="Otro"> Otro</tr>
+			<input type="radio" name="gender" value="Otro"> Otro</tr></td>
 		</tr>
 		<tr align="left">
 			<td>Edad</td>
@@ -106,7 +106,11 @@ echo <<<_END
 		</tr>
 		<tr align="left">
 			<td>Especialidad</td>
-			<td><input type="text" name="specialty" value="" required></td>
+			<td><input type="checkbox" name="specialty[]" value="Observador">Observador<br>
+			<input type="checkbox" name="specialty[]" value="Agil">Agil<br>
+			<input type="checkbox" name="specialty[]" value="Sigiloso">Sigilosolue<br>
+			<input type="checkbox" name="specialty[]" value="Inteligente">Inteligente<br>
+			</td>
 		</tr>
 		<tr align="left">
 			<td>Foto</td>
