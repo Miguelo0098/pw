@@ -62,7 +62,17 @@
 echo <<<_END
 	<body>
 		<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
-		<h1 id='login'><b>Special Agents Database</b></h1>
+		<div id='login'>
+		<h1><b>Special Agents Database</b></h1>
+_END;
+	if (LOGGED) {
+		echo "<h5 align='right'>Bienvenido ".USERNAME." | <a href='logout.php'>Cerrar Sesión</a></h5>";
+	}else{
+		echo "<h5 align='right'><a href='login.php'>Iniciar Sesión | Registrarse</a></h5>";
+	}
+
+echo <<<_END
+		</div>
 		<h3>Creacion de un nuevo miembro</h3>
 		<form action="addemployee.php" method="post">
 		<table align="center" style="margin: 0 auto;">
