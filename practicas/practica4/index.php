@@ -25,22 +25,23 @@
 
 	if (isset($_SESSION['expire']) && time() >= $_SESSION['expire']) {
 		session_destroy();
-		exit;
+		exit();
 	}
 
 	/* Obtengo el listado de empleados */
 echo <<<_END
 		<img id="uco" src="./pics/índice.jpeg" alt="UCO LOGO">
+		<div id='login'>
 		<h1><b>Special Agents Database</b></h1>
 _END;
 	if (LOGGED) {
-		echo "<h5 id='login'>Bienvenido ".USERNAME." | <a href='logout.php'>Cerrar Sesión</a></h5>";
+		echo "<h5 align='right'>Bienvenido ".USERNAME." | <a href='logout.php'>Cerrar Sesión</a></h5>";
 	}else{
-		echo "<h5 id='login'><a href='login.php'>Iniciar Sesión | Registrarse</a></h5>";
+		echo "<h5 align='right'><a href='login.php'>Iniciar Sesión | Registrarse</a></h5>";
 	}
 
 echo <<<_END
-
+		</div>
 		<h3 allign='center'>Lista de agentes</h3>
 _END;
 	if (LOGGED && ADMIN) {

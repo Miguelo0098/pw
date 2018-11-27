@@ -129,6 +129,9 @@ _END;
   		</tr>
 		</table>
 		</form>
+		<a id="back" href="./index.php">Atrás</a>
+		<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
+		
 _END;
 
 ?>
