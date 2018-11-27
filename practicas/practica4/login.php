@@ -1,6 +1,7 @@
 <?php
 	require_once('session.php');
- ?>
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,6 +21,10 @@
 	if(empty($query->dbc)){
 		echo "<h3 align='center'>Ha habido un problema al conectar con la base de datos. Por favor, vuelva mas tarde. </h3></br>";
 		die();
+	}
+
+	if (time() >= $_SESSION['expire']) {
+		session_destroy();
 	}
 
 echo <<<_END
@@ -72,8 +77,8 @@ _END;
 		if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
 			header("location: index.php");
 			exit;
-
 		}
+		
 	}else{
 		//Si no estamos iniciado sesion, asumimos que estamos registrandonos
 

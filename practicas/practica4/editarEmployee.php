@@ -1,3 +1,7 @@
+<?php
+	require_once('session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,21 +13,23 @@
 
 <?php
 
-$ID = $_GET["employee"];
-require_once('employeefunctions.php');
+	$ID = $_GET["employee"];
+	require_once('employeefunctions.php');
 
-/* Create queries object */
-$q = new EmployeeQueries();
-if(empty($q->dbc)){
-    echo "<h3 align='center'>¡Error!: No se pudo establecer la conexión con la base de datos.</h3><br/>";
-    die();
-}
+	/* Create queries object */
+	$q = new EmployeeQueries();
+	if(empty($q->dbc)){
+	    echo "<h3 align='center'>¡Error!: No se pudo establecer la conexión con la base de datos.</h3><br/>";
+	    die();
+	}
 
-/* Check is the book is going to be modified */
-if (isset($_POST['editagent'])){
+	if (time() >= $_SESSION['expire'])
+		session_destroy();
 
-    //Check if cancel button has been selected
+	/* Check is the book is going to be modified */
+	if (isset($_POST['editagent'])){
 
+    	//Check if cancel button has been selected
         $check = true;
 
         //Get the new book values
@@ -41,23 +47,18 @@ if (isset($_POST['editagent'])){
             $status = $q->updateEmployee($agent);
 			var_dump($status);
             //If correctly added, go to books page
-            if($status){
+            if($status)
                 header('Location: /index.php');
-            }
-            else{
+            else
                 echo "<h3 align='center' style='color: red'>An error ocurred. Please try again.</h3><br>";
-            }
-        }else{
+        }else
             echo "<h3 align='center' style='color: red'>Please check the fields and try again.</h3><br>";
-        }
+	}
 
-
-
-}
-if (isset($employee)) {
+	if (isset($employee))
+		$employee = $q->getEmployee($ID);
+	
 	$employee = $q->getEmployee($ID);
-}
-$employee = $q->getEmployee($ID);
 
 echo <<<_END
 	<body>
@@ -81,21 +82,24 @@ echo <<<_END
 		<tr align="left">
 			<td>Sexo</td>
 _END;
-	if ($employee['SEXO'] = "Hombre") {
+	if ($employee['SEXO'] = "Hombre")
 		echo "<td><input type='radio' name='gender' value='Hombre' checked> Hombre<br>";
-	}else{
+	else
 		echo "<td><input type='radio' name='gender' value='Hombre'> Hombre<br>";
-	}
-	if ($employee['SEXO'] = "Mujer") {
+	
+
+	if ($employee['SEXO'] = "Mujer")
 		echo "<input type='radio' name='gender' value='Mujer' checked> Mujer<br>";
-	}else{
+	else
 		echo "<input type='radio' name='gender' value='Mujer'> Mujer<br>";
-	}
-	if ($employee['SEXO'] = "Otro") {
+	
+
+	if ($employee['SEXO'] = "Otro")
 		echo "<input type='radio' name='gender' value='Otro' checked> Otro</td>";
-	}else{
+	else
 		echo "<input type='radio' name='gender' value='Otro'> Otro</td>";
-	}
+	
+
 echo <<<_END
 
 		</tr>
@@ -104,9 +108,9 @@ echo <<<_END
 			<td><select name="edad">
 				<option selected="selected">$employee[EDAD]</option>
 _END;
-			for ($i=16; $i < 100; $i++) {
+			for ($i=16; $i < 100; $i++)
 				echo "<option value='$i'>$i</option>";
-			}
+
 echo <<<_END
 			</select></td>
 		</tr>
@@ -131,10 +135,6 @@ echo <<<_END
   	<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
 	</body>
 _END;
-
-
-	//Compruebo que se ha introducido todo
-
 
 ?>
 
