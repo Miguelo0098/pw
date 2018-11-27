@@ -1,7 +1,3 @@
-<?php
-	require_once('session.php');
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,10 +19,6 @@
 	if(empty($query->dbc)){
 		echo "<h3 align='center'>Ha habido un problema al conectar con la base de datos. Por favor, vuelva mas tarde. </h3></br>";
 		die();
-	}
-
-	if (time() >= $_SESSION['expire']) {
-		session_destroy();
 	}
 
 	// Crea un nuevo objeto para llamar a las consultas
@@ -68,14 +60,10 @@ echo <<<_END
 		</body>
 _END;
 
-	if(isset($_POST["eraseSelection"]))
+	if(isset($_POST["eraseSelection"])){
 		$query->deleteEmployee($ID);
-<<<<<<< HEAD
 
 	}
-=======
-	
->>>>>>> 20f81f153b92199cce309f9fcc7c2d2aac36d2e1
 ?>
 
 </body>
