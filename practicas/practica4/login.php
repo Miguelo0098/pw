@@ -23,7 +23,7 @@
 		die();
 	}
 
-	if (time() >= $_SESSION['expire']) {
+	if (isset($_SESSION['expire']) && time() >= $_SESSION['expire']) {
 		session_destroy();
 	}
 
@@ -78,7 +78,7 @@ _END;
 			header("location: index.php");
 			exit;
 		}
-		
+
 	}else{
 		//Si no estamos iniciado sesion, asumimos que estamos registrandonos
 

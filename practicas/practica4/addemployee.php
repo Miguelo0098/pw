@@ -22,8 +22,9 @@
 	    die();
 	}
 
-	if (time() >= $_SESSION['expire']) {
+	if (isset($_SESSION['expire']) && time() >= $_SESSION['expire']) {
 		session_destroy();
+		exit();
 	}
 
 	/* Check is the book is going to be modified */
@@ -114,7 +115,7 @@ echo <<<_END
   	<p id="cookies">This site uses cookies to deliver our services. By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.</p>
 	</body>
 _END;
-	
+
 ?>
 
 </body>

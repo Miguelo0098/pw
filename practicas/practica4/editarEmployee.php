@@ -23,8 +23,11 @@
 	    die();
 	}
 
-	if (time() >= $_SESSION['expire'])
+	if (isset($_SESSION['expire']) && time() >= $_SESSION['expire']){
 		session_destroy();
+		exit();
+	}
+
 
 	/* Check is the book is going to be modified */
 	if (isset($_POST['editagent'])){
@@ -57,7 +60,7 @@
 
 	if (isset($employee))
 		$employee = $q->getEmployee($ID);
-	
+
 	$employee = $q->getEmployee($ID);
 
 echo <<<_END
@@ -86,19 +89,19 @@ _END;
 		echo "<td><input type='radio' name='gender' value='Hombre' checked> Hombre<br>";
 	else
 		echo "<td><input type='radio' name='gender' value='Hombre'> Hombre<br>";
-	
+
 
 	if ($employee['SEXO'] = "Mujer")
 		echo "<input type='radio' name='gender' value='Mujer' checked> Mujer<br>";
 	else
 		echo "<input type='radio' name='gender' value='Mujer'> Mujer<br>";
-	
+
 
 	if ($employee['SEXO'] = "Otro")
 		echo "<input type='radio' name='gender' value='Otro' checked> Otro</td>";
 	else
 		echo "<input type='radio' name='gender' value='Otro'> Otro</td>";
-	
+
 
 echo <<<_END
 

@@ -1,3 +1,6 @@
+<?php
+	require_once('session.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,6 +22,11 @@
 	if(empty($query->dbc)){
 		echo "<h3 align='center'>Ha habido un problema al conectar con la base de datos. Por favor, vuelva mas tarde. </h3></br>";
 		die();
+	}
+
+	if (isset($_SESSION['expire']) && time() >= $_SESSION['expire']) {
+		session_destroy();
+		exit();
 	}
 
 	// Crea un nuevo objeto para llamar a las consultas
