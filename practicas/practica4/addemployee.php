@@ -44,7 +44,7 @@
         $agent[3] = $_POST['gender'];
         $agent[4] = $_POST['edad'];
         $agent[5] = $_POST['photo'];
-        $agent[6] = implode(',', $_POST['specialty']);
+        $agent[6] = implode('|', $_POST['specialty']);
         $agent[7] = $_POST['contactInfo'];
 
 

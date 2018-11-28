@@ -44,7 +44,7 @@
         $agent[3] = $_POST['gender'];
         $agent[4] = $_POST['edad'];
         $agent[5] = $_POST['photo'];
-        $agent[6] = $_POST['specialty'];
+        $agent[6] = implode('|', $_POST['specialty']);
         $agent[7] = $_POST['contactInfo'];
 
 
@@ -134,24 +134,24 @@ echo <<<_END
 _END;
 
 	if(strpos($employee['ESPECIALIDAD'], 'Observador') !== false)
-			echo "<td><input type='checkbox' name='specialty[]' value='Observador' checked>Observador<br>"
+			echo "<td><input type='checkbox' name='specialty[]' value='Observador' checked>Observador<br>";
 	else
-		echo "<td><input type='checkbox' name='specialty[]' value='Observador'>Observador<br>"
+		echo "<td><input type='checkbox' name='specialty[]' value='Observador'>Observador<br>";
 
 	if(strpos($employee['ESPECIALIDAD'], 'Agil') !== false)
-			echo "<td><input type='checkbox' name='specialty[]' value='Agil' checked>Agil<br>"
+			echo "<input type='checkbox' name='specialty[]' value='Agil' checked>Agil<br>";
 	else
-		echo "<td><input type='checkbox' name='specialty[]' value='Agil'>Agil<br>"
+		echo "<input type='checkbox' name='specialty[]' value='Agil'>Agil<br>";
 
 	if(strpos($employee['ESPECIALIDAD'], 'Sigiloso') !== false)
-		echo "<td><input type='checkbox' name='specialty[]' value='Sigiloso' checked>Sigiloso<br>"
+		echo "<input type='checkbox' name='specialty[]' value='Sigiloso' checked>Sigiloso<br>";
 	else
-		echo "<td><input type='checkbox' name='specialty[]' value='Sigiloso'>Sigiloso<br>"
+		echo "<input type='checkbox' name='specialty[]' value='Sigiloso'>Sigiloso<br>";
 
 	if(strpos($employee['ESPECIALIDAD'], 'Inteligente') !== false)
-		echo "<td><input type='checkbox' name='specialty[]' value='Inteligente' checked>Inteligente<br></td>"
+		echo "<input type='checkbox' name='specialty[]' value='Inteligente' checked>Inteligente<br></td>";
 	else
-		echo "<td><input type='checkbox' name='specialty[]' value='Inteligente'>Inteligente<br></td>"
+		echo "<input type='checkbox' name='specialty[]' value='Inteligente'>Inteligente<br></td>";
 
 echo <<<_END
 		</tr>
