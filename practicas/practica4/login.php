@@ -59,7 +59,7 @@ _END;
 			$_SESSION['loggedin'] = true;
 			$_SESSION['name'] = $row[0];
 			$_SESSION['start'] = time();
-			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
+			$_SESSION['expire'] = $_SESSION['start'] + (1 * 5);
 			if ($row[2] == 1) {
 				$_SESSION['admin'] = true;
 			}else{
