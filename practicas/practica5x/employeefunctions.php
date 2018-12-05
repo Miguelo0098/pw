@@ -58,6 +58,16 @@ class EmployeeQueries{
     return $row;
   }
 
+  public function getEmployeeByName($nick){
+    $row = [];
+    $sqlcommand = "SELECT * FROM EMPLOYEES WHERE NICK=".$nick;
+    $sentence = $this->dbc->prepare($sqlcommand);
+    if ($sentence->execute()) {
+      $row = $sentence->fetch();
+    }
+    return $row;
+  }
+
   public function deleteEmployee($id){
     $sqlcommand = "DELETE FROM EMPLOYEES WHERE ID=".$id;
     $sentence = $this->dbc->prepare($sqlcommand);
@@ -121,6 +131,14 @@ class EmployeeQueries{
           }
       }
       return false;
+  }
+
+  public function askForMoney($agent){
+      $sqlcommand = "UPDATE `EMPLOYEES` SET `AUMENTO`='$agent[1]',`DESEADO`='$agent[2]' WHERE NICK='$agent[0]'";
+      $sentence = $this->dbc->prepare($sqlcommand);
+      if ($sentence->execute()) {
+          return true;
+      }
   }
 
 }
