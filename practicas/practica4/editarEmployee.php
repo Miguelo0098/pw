@@ -162,7 +162,7 @@ echo <<<_END
 		</tr>
 		<tr>
 			<td>Salario</td>
-			<td><input type="text" name="salary" value="$employee[SALARIO]"></td>
+			<td><input type="text" name="salary" value="$employee[SUELDO]"></td>
 		</tr>
 		<tr align="left">
 			<td>Direccion de contacto</td>

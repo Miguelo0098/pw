@@ -59,7 +59,7 @@ _END;
 					<th>Sexo</th>
 					<th>Edad</th>
 					<th>Especialidad</th>
-					<th>Salario</th>
+					<th>Sueldo</th>
 					<th>Contacto</th>
 				</tr>
 				<tr allign='center'>
@@ -69,7 +69,7 @@ _END;
 					<td>$databaseUser[SEXO]</td>
 					<td>$databaseUser[EDAD]</td>
 					<td>$databaseUser[ESPECIALIDAD]</th>
-					<td>$databaseUser[SALARIO]</th>
+					<td>$databaseUser[SUELDO]</th>
 					<td><a href="https://webmail.uco.es/horde/imp/compose.php?to=$databaseUser[CONTACTO]&uniq=1540292184179" target="_blank">$databaseUser[CONTACTO]</td>
 			</table>
 			<a id="back" href="./index.php">Atrás</a>
