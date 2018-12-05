@@ -160,7 +160,7 @@ echo <<<_END
 			<td>Foto</td>
 			<td><input type="text" name="photo" value="$employee[PHOTO]"></td>
 		</tr>
-		<tr>
+		<tr align="left">
 			<td>Salario</td>
 			<td><input type="text" name="salary" value="$employee[SUELDO]"></td>
 		</tr>
