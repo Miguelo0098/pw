@@ -77,7 +77,7 @@ class EmployeeQueries{
   }
 
   public function addEmployee($agent){
-    $sqlcommand = "INSERT INTO `EMPLOYEES`(`ID`, `NOMBRE`, `NICK`, `SEXO`, `EDAD`, `PHOTO`, `ESPECIALIDAD`, `SUELDO`, `CONTACTO`) VALUES ('$agent[0]','$agent[1]','$agent[2]','$agent[3]','$agent[4]','$agent[5]','$agent[6]','$agent[8]','$agent[7]')";
+    $sqlcommand = "INSERT INTO `EMPLOYEES`(`ID`, `NOMBRE`, `NICK`, `SEXO`, `EDAD`, `PHOTO`, `ESPECIALIDAD`, `CONTACTO`) VALUES ('$agent[0]','$agent[1]','$agent[2]','$agent[3]','$agent[4]','$agent[5]','$agent[6]','$agent[7]')";
     $sentence = $this->dbc->prepare($sqlcommand);
     if ($sentence->execute()) {
         return true;
@@ -86,7 +86,7 @@ class EmployeeQueries{
   }
 
   public function updateEmployee($agent){
-    $sqlcommand = "UPDATE `EMPLOYEES` SET `NOMBRE`='$agent[1]',`NICK`='$agent[2]',`SEXO`='$agent[3]',`EDAD`='$agent[4]',`PHOTO`='$agent[5]',`ESPECIALIDAD`='$agent[6]',`SUELDO`='$agent[8]',`CONTACTO`='$agent[7]' WHERE ID='$agent[0]'";
+    $sqlcommand = "UPDATE `EMPLOYEES` SET `NOMBRE`='$agent[1]',`NICK`='$agent[2]',`SEXO`='$agent[3]',`EDAD`='$agent[4]',`PHOTO`='$agent[5]',`ESPECIALIDAD`='$agent[6]',`CONTACTO`='$agent[7]' WHERE ID='$agent[0]'";
     $sentence = $this->dbc->prepare($sqlcommand);
     if ($sentence->execute()) {
         return true;

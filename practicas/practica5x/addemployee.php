@@ -46,6 +46,7 @@
         $agent[5] = $_POST['photo'];
         $agent[6] = implode('|', $_POST['specialty']);
         $agent[7] = $_POST['contactInfo'];
+		$agent[8] = $_POST['salary'];
 
 
         if($check) {
@@ -115,6 +116,10 @@ echo <<<_END
 		<tr align="left">
 			<td>Foto</td>
 			<td><input type="text" name="photo"></td>
+		</tr>
+		<tr align="left">
+			<td>Salario</td>
+			<td><input type="text" name="salary"></td>
 		</tr>
 		<tr align="left">
 			<td>Direccion de contacto</td>

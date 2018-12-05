@@ -59,7 +59,7 @@ _END;
 			$_SESSION['loggedin'] = true;
 			$_SESSION['name'] = $row[0];
 			$_SESSION['start'] = time();
-			$_SESSION['expire'] = $_SESSION['start'] + (1 * 5);
+			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
 			if ($row[2] == 1) {
 				$_SESSION['admin'] = true;
 			}else{
@@ -71,7 +71,7 @@ _END;
 			echo "<div class='alert alert-success' role='alert'><strong>Welcome!</strong> $row[Name] <p><a href='edit-profile.php'>Edit Profile</a></p><p><a href='logout.php'>Logout</a></p></div>";
 
 		}else{
-			echo "<div class='alert-danger' role='alert'>Email or Password are incorrect!<p><a href='login.php'><strong>Please try again!</strong></a></p></div>";
+			echo "<div class='alert-danger' role='alert'>Usuario o Contraseña incorrectos<p><a href='login.php'><strong>Please try again!</strong></a></p></div>";
 		}
 
 		if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
@@ -98,15 +98,15 @@ _END;
 		}
 
 		if ($password != $passwordVerifier) {
-			echo "<h3>Passwords do not match. Please try again</h3>";
+			echo "<h3>Las contraseñas no coinciden. Inténtalo de nuevo.</h3>";
 		}
 		else{
 			$user[0] = $username;
 			$user[1] = $password;
 			if ($query->addUser($user) == true) {
-				echo "<h3>Register Success! Please log in.</h3>";
+				echo "<h3>Registrado con éxito. Por favor inicia sesión.</h3>";
 			}else{
-				echo "<h3>User already exists. Please try again</h3>";
+				echo "<h3>El usuario ya existe. Inténtalo de nuevo.</h3>";
 			}
 		}
 	}
