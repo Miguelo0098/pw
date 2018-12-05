@@ -43,7 +43,7 @@
 
 
         if($check){
-            $status = $q->askForMoney($agent);
+            $status = $query->askForMoney($agent);
 
             //If correctly added, go to books page
             if($status)
@@ -77,7 +77,7 @@ echo <<<_END
 		</tr>
 		<tr align='left'>
 			<td>Salario Solicitado</td>
-			<td><input type="text" name"salariodeseado" required></td>
+			<td><input type="text" name="salariodeseado" required></td>
 		</tr>
 		<tr align="left">
 			<td><input type="submit" name="confirmar" value="Confirmar"></td>

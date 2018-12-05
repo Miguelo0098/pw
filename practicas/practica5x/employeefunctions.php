@@ -141,4 +141,12 @@ class EmployeeQueries{
       }
   }
 
+  public function changeSalary($agent){
+      $sqlcommand = "UPDATE `EMPLOYEES` SET `AUMENTO`='$agent[1]',`SUELDO`='$agent[2]',`DESEADO`=NULL WHERE ID='$agent[0]'";
+      $sentence = $this->dbc->prepare($sqlcommand);
+      if ($sentence->execute()) {
+          return true;
+      }
+  }
+
 }

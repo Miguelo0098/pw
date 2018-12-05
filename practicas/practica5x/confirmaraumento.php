@@ -12,7 +12,7 @@
 
 <?php
 	/* Incluyo las funciones de consulta de la base de datos */
-	$nick = $_GET["user"];
+	$ID = $_GET['employee'];
 	require_once('employeefunctions.php');
 
 
@@ -31,19 +31,42 @@
 		exit();
 	}
 
+	$employee = $query->getEmployee($ID);
+
 	if (isset($_POST['confirmar'])){
 
     	//Check if cancel button has been selected
         $check = true;
 
         //Get the new agent values
-        $agent[0] = $nick;
-        $agent[1] = 1;
-        $agent[2] = $_POST['salariodeseado'];
+        $agent[0] = $ID;
+        $agent[1] = 0;
+        $agent[2] = $employee['DESEADO'];
 
 
         if($check){
-            $status = $q->askForMoney($agent);
+            $status = $query->changeSalary($agent);
+
+            //If correctly added, go to books page
+            if($status)
+                header('Location: /index.php');
+            else
+                echo "<h3 align='center' style='color: red'>An error ocurred. Please try again.</h3><br>";
+        }else
+            echo "<h3 align='center' style='color: red'>Please check the fields and try again.</h3><br>";
+
+	}else if(isset($_POST['rechazar'])){
+		//Check if cancel button has been selected
+        $check = true;
+
+        //Get the new agent values
+        $agent[0] = $ID;
+        $agent[1] = 0;
+        $agent[2] = $employee['SUELDO'];
+
+
+        if($check){
+            $status = $query->changeSalary($agent);
 
             //If correctly added, go to books page
             if($status)
@@ -53,6 +76,7 @@
         }else
             echo "<h3 align='center' style='color: red'>Please check the fields and try again.</h3><br>";
 	}
+
 
 	/* Obtengo el listado de empleados */
 echo <<<_END
@@ -68,19 +92,24 @@ _END;
 
 echo <<<_END
 		</div>
-		<h3>Solicitar Salario</h3>
-		<form action="askformoney.php?user=$nick" method="post">
+		<h3>Solicitud de aumento</h3>
+		<form action="confirmaraumento.php?employee=$ID" method="post">
 		<table align="center" style="margin: 0 auto;">
 		<tr align="left">
-			<th id="addedit">Formulario</th>
+			<th id="addedit">Solicitud</th>
 			<th id="addedit"></th>
 		</tr>
 		<tr align='left'>
+			<td>Empleado</td>
+			<td>$employee[NICK]</td>
+		</tr>
+		<tr align='left'>
 			<td>Salario Solicitado</td>
-			<td><input type="text" name"salariodeseado" required></td>
+			<td>$employee[DESEADO]</td>
 		</tr>
 		<tr align="left">
 			<td><input type="submit" name="confirmar" value="Confirmar"></td>
+			<td><input type="submit" name="rechazar" value="Rechazar"></td>
 		</tr>
 		</table>
 		</form>

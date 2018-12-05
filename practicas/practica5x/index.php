@@ -42,7 +42,7 @@ _END;
 		echo "<h5 align='right'><a href='login.php'>Iniciar Sesión | Registrarse</a></h5>";
 	}
 	if(LOGGED && !ADMIN){
-		echo "<h5 align='right'><a href='askformoney.php'>Solicitar Aumento</a></h5>";
+		echo "<h5 align='right'><a href='askformoney.php?user=".USERNAME."'>Solicitar Aumento</a></h5>";
 	}
 
 echo <<<_END
@@ -74,7 +74,7 @@ _END;
 				<a href="editarEmployee.php?employee=$employee[ID]"><img id="icono" src="./pics/edit.png" alt="Editar"></a>
 				<a href="borrarEmployee.php?employee=$employee[ID]"><img id="icono" src="./pics/delete.png" alt="Borrar"></a>
 _END;
-				if ($employee[AUMENTO]) {
+				if ($employee['AUMENTO']) {
 			echo "<a href='confirmaraumento.php?employee=$employee[ID]'><img id='icono' src='./pics/dolar.jpg' alt='Revisar Salario'></a>";
 				}
 			}
