@@ -12,7 +12,7 @@
 <?php
     session_destroy();
     echo "<h3 align='center'>Cerrando sesión... Volviendo a la página principal.</h3><br/>";
-    header("refresh: 5; http://localhost:80/index.php");
+    header("refresh: 3; http://localhost:80/index.php");
     exit();
  ?>
 </body>
